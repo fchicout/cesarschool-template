@@ -1,0 +1,13 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Remove "<" e ">" das URLs nas referencias NBR 6023/2018
+%
+
+\ProvidesPackage{abntex2/url6023}
+
+\makeatletter
+\@ifpackageloaded{url}{%
+\addtociteoptionlist{abnt-url-package=url}
+\def\UrlLeft{}
+\def\UrlRight{}
+\urlstyle{same}}
+\makeatother

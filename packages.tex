@@ -1,0 +1,32 @@
+\usepackage{pdfpages}
+\usepackage{fontspec} % Changed from inconsolata
+\usepackage{listings}
+
+
+\definecolor{cinza}{HTML}{FCF8F8}
+
+% define formato e estilo dos elementos do tipo Codigo Fonte
+\lstset{
+language=Python, % This still sets Python as the default language
+basicstyle=\small\ttfamily, % Keep \ttfamily
+% If you want a specific size for code, define it here, e.g., \small or \scriptsize
+% basicstyle=\small\fontfamily{inconsolata}\selectfont, % Alternative if \ttfamily doesn't work
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{pblue},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+morecomment=[s][\color{gray}]{@}{\ },
+numbers=left,
+numberstyle=\tiny\color{black},
+backgroundcolor=\color{cinza},
+stepnumber=2,
+numbersep=8pt,
+xleftmargin=14pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false,
+breaklines=true,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{adjustbox} % ajustar tabela ao tamanho da pagina

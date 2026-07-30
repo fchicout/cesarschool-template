@@ -1,0 +1,64 @@
+%Please add the following packages if necessary:
+%\usepackage{booktabs, multirow} % for borders and merged ranges
+%\usepackage{soul}% for underlines
+%\usepackage{xcolor,colortbl} % for cell colors
+%\usepackage{changepage,threeparttable} % for wide tables
+%If the table is too wide, replace \begin{table}[!htp]...\end{table} with
+%\begin{adjustwidth}{-2.5 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]...\end{threeparttable}\end{adjustwidth}
+\begin{table}[!htp]
+\centering
+\caption{Exemplo de tabela.}
+\label{tab:tabela1}
+\Large
+\scriptsize
+
+{\normalsize
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Defesa} &
+\rotatebox{90}{\textbf{FGSM}} & 
+\rotatebox{90}{\textbf{DeepFool    }} & 
+\rotatebox{90}{\textbf{JSMA}} & 
+\rotatebox{90}{\textbf{C\&W}} & 
+\rotatebox{90}{\textbf{BIM}} & 
+\rotatebox{90}{\textbf{PGD}} & 
+\rotatebox{90}{\textbf{L-BFGS}} & 
+\rotatebox{90}{\textbf{UAP}} \cr
+\hline
+Treinamento Adversarial & X & X & X & & & & & \\
+\hline
+Compressão de Dados como Defesa & X & & & X & & & & O \\
+\hline
+MagNet & X & X & & O & X & & & \\
+\hline
+Destilação Defensiva & X & & X & O & & & & \\
+\hline
+Aleatorização & X & X & & X & & & & \\
+\hline
+Feature Squeezing & X & X & X & X & X & & & \\
+\hline
+Regularização / Máscara do Gradiente & X & & X & X & & X & X & \\
+\hline
+Redes de Parseval & X & & & & & & & \\
+\hline
+Deep Contractive Networks & & & & & & & X & \\
+\hline
+DeepCloak & X & & & & & & & \\
+\hline
+SafetyNet & X & X & & & X & & X & \\
+\hline
+Defesa Baseada em Foveação & X & & & & & & X & \\
+\hline
+PRN & & & & & & & & X \\
+\hline
+Sub-rede de Detecção & X & X & & & X & & & \\
+\hline
+Super-Resolução de Imagem & X & X & & X & X & & & \\
+\hline
+\end{tabular}
+}
+
+%Adicionar um trecho descrevendo a razão para não estarem na tabela todas as formas de defesa/ataque: não haver uma correlação possível.
+
+\fonteautor
+\end{table}
