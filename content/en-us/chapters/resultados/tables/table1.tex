@@ -1,0 +1,64 @@
+%Please add the following packages if necessary:
+%\usepackage{booktabs, multirow} % for borders and merged ranges
+%\usepackage{soul}% for underlines
+%\usepackage{xcolor,colortbl} % for cell colors
+%\usepackage{changepage,threeparttable} % for wide tables
+%If the table is too wide, replace \begin{table}[!htp]...\end{table} with
+%\begin{adjustwidth}{-2.5 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]...\end{threeparttable}\end{adjustwidth}
+\begin{table}[!htp]
+\centering
+\caption{Example table.}
+\label{tab:tabela1}
+\Large
+\scriptsize
+
+{\normalsize
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Technique} &
+\rotatebox{90}{\textbf{Crispy}} &
+\rotatebox{90}{\textbf{Quick    }} &
+\rotatebox{90}{\textbf{Cheap}} &
+\rotatebox{90}{\textbf{Gluten-Free}} &
+\rotatebox{90}{\textbf{Vegan}} &
+\rotatebox{90}{\textbf{Freezable}} &
+\rotatebox{90}{\textbf{No Oven}} &
+\rotatebox{90}{\textbf{Tested}} \cr
+\hline
+Long-Fermentation Dough & X & & & & X & X & & \\
+\hline
+Instant Dough & & X & X & & X & & & O \\
+\hline
+Blender Dough & X & X & & O & X & & & \\
+\hline
+Whole-Wheat Dough & X & & X & O & & & & \\
+\hline
+Gluten-Free Dough & X & X & & X & & & & \\
+\hline
+Sourdough & X & X & X & X & X & & & \\
+\hline
+Frozen Ready-Made / No-Oven Dough & X & & X & X & & X & X & \\
+\hline
+Stuffed-Crust Dough & X & & & & & & & \\
+\hline
+Thin Roman-Style Dough & & & & & & & X & \\
+\hline
+Thick Chicago-Style Dough & X & & & & & & & \\
+\hline
+Air-Fryer Dough & X & X & & & X & & X & \\
+\hline
+Stone-Baked Dough & X & & & & & & X & \\
+\hline
+Skillet Dough & & & & & & & & X \\
+\hline
+Potato Dough & X & X & & & X & & & \\
+\hline
+Sweet (Dessert) Dough & X & X & & X & X & & & \\
+\hline
+\end{tabular}
+}
+
+%Add a passage explaining why not every known technique appears in the table: there isn't enough data for a fair comparison.
+
+\fonteautor
+\end{table}

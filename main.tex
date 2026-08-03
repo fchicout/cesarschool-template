@@ -189,8 +189,8 @@
 % LISTA E ABREVIATURAS E SIGLAS
 % ----------------------------------------------------------
 \input{packages}
-\input{others/glossaries}
-\input{others/acronimos}
+\input{content/\contentlangdir/front-matter/glossaries}
+\input{content/\contentlangdir/front-matter/acronyms}
 
 
 
@@ -214,19 +214,21 @@
 
 \begin{document}
 
+\aplicaridiomacorpo % garante que \templatelang (custom.tex) vence a selecao automatica do babel
+
 \frenchspacing % Retira espaço extra obsoleto entre as frases.
 
 
 % Se você quiser alterar o conteúdo da capa, você pode fazêlo em custom.tex
-\imprimircapa 
+\imprimircapa
 \imprimirfolhaderosto*~
-\input{others/ficha}
-%\input{others/ata_defesa}
-%\input{others/folha_aprovacao_original}
-%\input{others/dedicatoria}
-\input{others/agradecimentos}
-%\input{others/epigrafe}
-%\input{others/resumo}
+\input{content/\contentlangdir/front-matter/ficha}
+%\input{content/\contentlangdir/front-matter/ata_defesa}
+%\input{content/\contentlangdir/front-matter/folha_aprovacao_original}
+%\input{content/\contentlangdir/front-matter/dedicatoria}
+\input{content/\contentlangdir/front-matter/agradecimentos}
+%\input{content/\contentlangdir/front-matter/epigrafe}
+\input{content/\contentlangdir/front-matter/resumo} % ABNT exige o resumo -- nao comente esta linha
 
 % ----------------------------------------------------------
 % LISTA DE FIGURAS (Ilustrações)
@@ -299,7 +301,7 @@
 % ----------------------------------------------------------
 % LISTA DE SIMBOLOS
 % ----------------------------------------------------------
-\input{others/list_simbol}
+\input{content/\contentlangdir/front-matter/list_simbol}
 
 % ----------------------------------------------------------
 % SUMÁRIO
@@ -317,7 +319,7 @@
 % ----------------------------------------------------------
 \textual
 
-\input{summary}
+\input{body}
 
 \bookmarksetup{startatroot}% 
 
