@@ -30,35 +30,60 @@
 % Nome do curso — descomente APENAS UMA linha abaixo (mantenha todas
 % as outras comentadas), correspondente ao seu curso e ao mesmo
 % idioma escolhido em main.tex (ptbr/enus). As linhas estão agrupadas
-% por grau (undergrad/msc/phd) só como guia -- confirme a lista de
-% programas atual no site da CESAR School, pois pode mudar com o tempo.
+% por grau (undergrad/msc/phd) -- confirme a lista de programas atual
+% no site da CESAR School, pois pode mudar com o tempo.
+%
+% Atenção, alunos de cursos TECNÓLOGO (graduação): o título de
+% conclusão não é "Bacharel" -- veja a observação após
+% \aplicardespachogrduidioma abaixo para corrigir isso no seu trabalho.
 % --------------------------------------------------------------
 % Program/course name — uncomment ONLY ONE line below (keep every
 % other line commented out), matching your program and the same
 % language chosen in main.tex (ptbr/enus). Lines are grouped by degree
-% (undergrad/msc/phd) as a guide only -- check CESAR School's current
-% program list, since it may change over time.
+% (undergrad/msc/phd) -- check CESAR School's current program list,
+% since it may change over time.
+%
+% Note for TECNÓLOGO (undergrad) students: your graduation title is
+% NOT "Bacharel" -- see the note after \aplicardespachogrduidioma
+% below to fix this for your work.
 % ----------------------------------------------------------
 
-% -- undergrad / graduação (TCC) --
-\newcommand{\curso}{Ciência da Computação}
+% -- undergrad / graduação: Bacharelado --
+%\newcommand{\curso}{Ciência da Computação}
+%\newcommand{\curso}{Design}
+%\newcommand{\curso}{Sistemas de Informação}
+%\newcommand{\curso}{Administração Tech}
+
+% -- undergrad / graduação: Tecnólogo (veja a nota acima sobre \novatitulacao) --
+%\newcommand{\curso}{Gestão de Tecnologia da Informação}
+%\newcommand{\curso}{Banco de Dados (Ciência de Dados e IA)}
+%\newcommand{\curso}{Segurança da Informação (Cybersegurança)}
+%\newcommand{\curso}{Análise e Desenvolvimento de Sistemas}
+
+% -- msc / Mestrado Profissional --
 %\newcommand{\curso}{Engenharia de Software}
 %\newcommand{\curso}{Design}
-%\newcommand{\curso}{Computer Science}
-%\newcommand{\curso}{Software Engineering}
 
-% -- msc / mestrado --
-%\newcommand{\curso}{Ciência da Computação}
-%\newcommand{\curso}{Computer Science}
+% -- phd / Doutorado Profissional --
+% (opção ativa por padrão -- combina com \documentclass[phd, ptbr] em main.tex)
+% (active by default -- matches \documentclass[phd, ptbr] in main.tex)
+\newcommand{\curso}{Engenharia de Software}
 
-% -- phd / doutorado --
-%\newcommand{\curso}{Ciência da Computação}
-%\newcommand{\curso}{Computer Science}
+% Se \templatelang for enus e seu curso não tiver nome oficial em
+% inglês, apenas traduza \curso você mesmo (ex.: "Software Engineering").
+% If \templatelang is enus and your program has no official English
+% name, just translate \curso yourself (e.g. "Software Engineering").
 
 % Deriva \programaname, \trabalhoname, \novatitulacao, \preambulo e
 % \preambuloatadefesa a partir de \degreetype + \templatelang acima
 % (ver abntex2/abntex2-cesarschool.sty).
 \aplicardespachogrduidioma
+
+% Alunos de curso TECNÓLOGO (graduação): descomente a linha abaixo
+% para corrigir o título de conclusão (não é "Bacharel").
+% TECNÓLOGO (undergrad) students: uncomment the line below to fix
+% your graduation title (it is not "Bacharel").
+%\renewcommand{\novatitulacao}{Tecnólogo }
 
 % ----------------------------------------------------------
 % Dados do trabalho — substitua \placeholdertitulo/\placeholderautor pelo
