@@ -1,16 +1,19 @@
+% Pacotes e configurações extras do template (estilo de código-fonte, etc.)
+% Extra template packages and settings (source-code listing style, etc.)
 \usepackage{pdfpages}
-\usepackage{fontspec} % Changed from inconsolata
+\usepackage{fontspec}
 \usepackage{listings}
 
 
 \definecolor{cinza}{HTML}{FCF8F8}
 
 % define formato e estilo dos elementos do tipo Codigo Fonte
+% defines the format/style used for source-code listings (\lstinputlisting)
 \lstset{
-language=Python, % This still sets Python as the default language
-basicstyle=\small\ttfamily, % Keep \ttfamily
-% If you want a specific size for code, define it here, e.g., \small or \scriptsize
-% basicstyle=\small\fontfamily{inconsolata}\selectfont, % Alternative if \ttfamily doesn't work
+language=Python, % idioma padrão / default language -- pode ser sobrescrito por \lstinputlisting[language=...] / can be overridden per listing
+basicstyle=\small\ttfamily,
+% para um tamanho de fonte diferente no código, ajuste aqui, ex: \small ou \scriptsize
+% for a different code font size, adjust here, e.g. \small or \scriptsize
 keywordstyle=\color{javapurple}\bfseries,
 stringstyle=\color{pblue},
 commentstyle=\color{javagreen},
