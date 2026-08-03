@@ -57,149 +57,37 @@
 % =============================================================
 % Este arquivo (main.tex) monta o documento inteiro, mas você
 % raramente precisa editá-lo. Para configurar seu trabalho:
-%   1. Abra custom.tex e preencha \degreetype, \templatelang,
-%      \curso, \titulo, \autor, \orientador etc.
-%   2. Escreva seu conteúdo em content/pt-br/ ou content/en-us/
+%   1. Na linha \documentclass abaixo, escolha seu grau (phd,
+%      msc ou undergrad) e idioma (ptbr ou enus).
+%   2. Abra custom.tex e preencha \curso, \titulo, \autor,
+%      \orientador etc.
+%   3. Escreva seu conteúdo em content/pt-br/ ou content/en-us/
 %      (o mesmo caminho relativo existe nas duas pastas -- edite
-%      a que corresponde ao \templatelang escolhido).
-%   3. body.tex lista os capítulos incluídos; appendix.tex e
+%      a que corresponde ao idioma escolhido acima).
+%   4. body.tex lista os capítulos incluídos; appendix.tex e
 %      anexos.tex fazem o mesmo para apêndices e anexos.
+% Todas as configurações avançadas (pacotes, cores, fontes) vivem
+% em cesarschool-thesis.cls -- não é necessário abri-lo.
 % Consulte README.md para o mapa completo de pastas.
 % -----------------------------------------------------------
 % This file (main.tex) assembles the whole document, but you
 % will rarely need to edit it. To configure your own work:
-%   1. Open custom.tex and fill in \degreetype, \templatelang,
-%      \curso, \titulo, \autor, \orientador, etc.
-%   2. Write your content under content/pt-br/ or content/en-us/
+%   1. On the \documentclass line below, choose your degree
+%      (phd, msc, or undergrad) and language (ptbr or enus).
+%   2. Open custom.tex and fill in \curso, \titulo, \autor,
+%      \orientador, etc.
+%   3. Write your content under content/pt-br/ or content/en-us/
 %      (the same relative paths exist in both -- edit whichever
-%      matches your chosen \templatelang).
-%   3. body.tex lists the included chapters; appendix.tex and
+%      matches the language you chose above).
+%   4. body.tex lists the included chapters; appendix.tex and
 %      anexos.tex do the same for appendices and annexes.
+% All advanced settings (packages, colors, fonts) live in
+% cesarschool-thesis.cls -- you shouldn't need to open it.
 % See README.md for the full folder map.
 % =============================================================
 
-\documentclass[
-	hidelinks,
-	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	%twoside,			% para impressão em verso e anverso. Oposto a oneside
-	oneside,            % padrão para CESAR School visto que nao exigem versão impressa dos trabalhos
-	a4paper,			% tamanho do papel. 
-	% -- opções da classe abntex2 --
-	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	french,				% idioma adicional para hifenização
-	spanish,			% idioma adicional para hifenização
-	english,
-	brazil,
-	% -- o último idioma é o principal do documento --
-	]{abntex2/abntex2}
-	\renewcommand{\baselinestretch}{1.5} %para customizar o espaço entre as linhas do texto
-% --
-% SETTINGS
-
-\usepackage{abntex2/abntex2-cesarschool} 
-
-% \usepackage[noframe]{showframe}
-% \usepackage{showframe}
-
-%\overfullrule=4mm %para identificar onde existem os alertas de linhas grandes mal formatada pelo LaTex, basta comentar para não aparecer a barra lateral preta na linha em questão.
-
-\renewcommand*\arraystretch{1.2} %para customizar o espaço entre as linhas das tabelas
-
-
-\usepackage{pdfpages} %para incluir pdf como páginas
-
-
-% ---
-% PACOTES
-% ---
-\usepackage{float}
-%\usepackage{cmap}				% Mapear caracteres especiais no PDF
-% \usepackage{lmodern}			% Usa a fonte Latin Modern		
-% \renewcommand{\familydefault}{\sfdefault}
-\usepackage{fontspec}
-\setmainfont{Arial}
-% \usepackage{helvet}
-% \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-% \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{lipsum}				% para geração de dummy text
-%\usepackage[alf,abnt-and-type=e,abnt-cite-style=1,abnt-etal-list=3,abnt-etal-cite=3,url]{abntex2/abntex2cite}
-\usepackage[alf,abnt-and-type=e,abnt-etal-list=3,abnt-etal-cite=3]{abntex2/abntex2cite}
-\usepackage[acronym,nonumberlist,nogroupskip,noredefwarn]{glossaries}
-\usepackage{abntex2/url6023} 
-\usepackage{multirow}
-\usepackage[section]{placeins} 
-\usepackage{csquotes}           % para displayquote
-\usepackage{amsmath}
-\usepackage{chngcntr}
-\counterwithout{equation}{chapter} % Removes the chapter prefix from the equation counter
-% Add the correct package here:
-\usepackage{dsfont}  % Recommended
-%\usepackage{bbold}  % Alternative (not always available)
-
-% -----------------------------------------------------------
-% lista de abreviaturas e siglas
-% início
-% -----------------------------------------------------------
-% \usepackage{glossary-superragged}
-
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-\newglossarystyle{modsuper}{%
-  \glossarystyle{super}%
-  \renewcommand{\glsgroupskip}{}
-  
-  % put the glossary in a longtable environment:
- \renewenvironment{theglossary}%
-  {
-    \begin{longtable}
-        {L{0.2\textwidth}L{0.8\textwidth}}}%
-    {\end{longtable}
-  }%
-}
-
-% -----------------------------------------------------------
-% lista de abreviaturas e siglas
-% fim
-% -----------------------------------------------------------
-
-
-\usepackage{lscape} 
-\usepackage{rotating} %rotates the figures, page
-\usepackage{tikz}
-\usepackage[section]{placeins}
-\usepackage{setspace} 
-
-
-
-% ----------------------------------------------------------
-% PERSONALIZAÇÃO DE CORES
-% ----------------------------------------------------------
-\definecolor{blue}{RGB}{41,5,195}
-\definecolor{gray}{rgb}{.4,.4,.4}
-\definecolor{pblue}{rgb}{0.13,0.13,1}
-\definecolor{pgreen}{rgb}{0,0.5,0}
-\definecolor{pred}{rgb}{0.9,0,0}
-\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
-\definecolor{lightgray}{rgb}{0.95, 0.95, 0.96}
-\definecolor{whitesmoke}{rgb}{0.96, 0.96, 0.96}
-\definecolor{javared}{rgb}{0.6,0,0} % for strings
-\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
-\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
-\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
-\definecolor{meucinza}{rgb}{0.5, 0.5, 0.5}
-%\definecolor{lightgray}{gray}{0.9}
+% Grau/Degree: phd | msc | undergrad -- Idioma/Language: ptbr | enus
+\documentclass[phd, ptbr]{cesarschool-thesis}
 
 % ----------------------------------------------------------
 % PERSONALIZAÇÃO DO USUÁRIO COM INFORMAÇÕES DO TRABALHO
@@ -214,7 +102,6 @@
 % ----------------------------------------------------------
 % LISTA E ABREVIATURAS E SIGLAS
 % ----------------------------------------------------------
-\input{packages}
 \input{content/\contentlangdir/front-matter/glossaries}
 \input{content/\contentlangdir/front-matter/acronyms}
 
@@ -223,24 +110,18 @@
 \makenoidxglossaries
 %\printnoidxglossary
 % \printnoidxglossary[type={main}]
-% \printnoidxglossary[type={acronym}] 
-\renewcommand*{\glsseeformat}[3][\seename]{\textit{#1}  
+% \printnoidxglossary[type={acronym}]
+\renewcommand*{\glsseeformat}[3][\seename]{\textit{#1}
 \glsseelist{#2}}
 
 \renewcommand*{\glspostdescription}{} % remove trailing dot
 \renewcommand{\glsnamefont}[1]{\textbf{#1}}
 
-% \renewcommand{\familydefault}{\sfdefault}
-
 % ----------------------------------------------------------
 % INÍCIO DO DOCUMENTO
 % ----------------------------------------------------------
-% \renewcommand{\familydefault}{\sfdefault} % usa fonte sans-serif por padrão
-% \renewcommand{\rmdefault}{\sfdefault}
 
 \begin{document}
-
-\aplicaridiomacorpo % garante que \templatelang (custom.tex) vence a selecao automatica do babel
 
 \frenchspacing % Retira espaço extra obsoleto entre as frases.
 

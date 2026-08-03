@@ -1,28 +1,24 @@
 % ==============================================================
-% Este é o principal arquivo que você deve editar. Configure seu
-% grau, idioma e os dados do seu trabalho (título, autor,
-% orientador...) abaixo. Depois, vá escrever seus capítulos em
-% content/pt-br/ (ou content/en-us/, conforme o \templatelang
-% escolhido). Veja README.md para mais detalhes.
+% Este é o principal arquivo que você deve editar para os dados do
+% seu trabalho (título, autor, orientador...) abaixo. Grau e idioma
+% são escolhidos em main.tex (\documentclass[...]{cesarschool-thesis}).
+% Depois, vá escrever seus capítulos em content/pt-br/ (ou
+% content/en-us/, conforme o idioma escolhido). Veja README.md para
+% mais detalhes.
 % --------------------------------------------------------------
-% This is the main file you should edit. Configure your degree
-% type, language, and your work's data (title, author, advisor...)
-% below. Then go write your chapters under content/pt-br/ (or
-% content/en-us/, matching the \templatelang you chose). See
-% README.md for more details.
+% This is the main file you should edit for your work's data (title,
+% author, advisor...) below. Degree and language are chosen in
+% main.tex (\documentclass[...]{cesarschool-thesis}). Then go write
+% your chapters under content/pt-br/ (or content/en-us/, matching the
+% language you chose). See README.md for more details.
 % ==============================================================
 
 % ----------------------------------------------------------
-% GRAU / DEGREE — escolha UMA opção / choose ONE option:
-%   doutorado | mestrado | tcc
+% GRAU / DEGREE e IDIOMA / LANGUAGE agora são opções da classe em
+% main.tex: \documentclass[phd|msc|undergrad, ptbr|enus]{cesarschool-thesis}
+% (nada a fazer aqui / degree and language are now class options in
+% main.tex -- nothing to set here)
 % ----------------------------------------------------------
-\renewcommand{\degreetype}{doutorado}
-
-% ----------------------------------------------------------
-% IDIOMA / LANGUAGE — escolha UMA opção / choose ONE option:
-%   ptbr | enus
-% ----------------------------------------------------------
-\renewcommand{\templatelang}{ptbr}
 
 % ----------------------------------------------------------
 % DADOS DO TRABALHO - CAPA e FOLHA DE ROSTO
@@ -31,8 +27,8 @@
 \newcommand{\instituicaoname}{CESAR SCHOOL}
 
 % ----------------------------------------------------------
-% Nome do curso — escreva no mesmo idioma escolhido em \templatelang acima
-% Program/course name — write it in the same language chosen in \templatelang above
+% Nome do curso — escreva no mesmo idioma escolhido em main.tex
+% Program/course name — write it in the same language chosen in main.tex
 % ----------------------------------------------------------
 \newcommand{\curso}{Ciência da Computação}
 %\newcommand{\curso}{Computer Science}
