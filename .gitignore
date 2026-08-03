@@ -1,0 +1,36 @@
+# Compiled output
+main.pdf
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.lol
+*.idx
+*.ind
+*.ilg
+*.glo
+*.gls
+*.glg
+*.acn
+*.acr
+*.alg
+*.ist
+*.run.xml
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.nlo
+*.nls
+*.loa
+*.loq
+*.figlist
+*.makefile
+*.auxlock
+missfont.log
