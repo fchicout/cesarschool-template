@@ -558,19 +558,25 @@
 
 
 
-%\usepackage[T1]{fontenc}
-%\usepackage[utf8]{inputenc}
-\usepackage{titlesec}
-
 %corrige espaçamento entre capítulo e texto para modelo ufpe
-\setlength{\afterchapskip}{0.85cm}
+\setlength{\afterchapskip}{0.85cm} % \afterchapskip já é nativo do memoir
 
-%corrige espaçamento entre seções
-\titlespacing{\section}{0cm}{0.85cm}{0.64cm}
-\titlespacing{\subsection}{0cm}{0.85cm}{0.64cm}
-\titlespacing{\subsubsection}{0cm}{0.85cm}{0.64cm}
-\titlespacing{\subsubsubsection}{0cm}{0.85cm}{0.64cm}
-\titlespacing{\subsubsubsubsection}{0cm}{0.85cm}{0.64cm}
+% corrige espaçamento entre seções -- usa os comandos nativos do memoir
+% (\setbeforesecskip/\setaftersecskip etc.) em vez do pacote titlesec, que
+% o memoir avisa ser incompatível com seus próprios recursos de capítulo/
+% seção (ver memoir.pdf, seções 6.4-6.6). \subsubsubsection é o quinto
+% nível ABNT e é definido por abntex2.cls como um alias de \paragraph
+% (\setbeforeparaskip/\setafterparaskip); não existe um sexto nível
+% (\subsubsubsubsection) de fato usado por abntex2.cls, então não há
+% comando nativo equivalente para ele.
+\setbeforesecskip{0.85cm}
+\setaftersecskip{0.64cm}
+\setbeforesubsecskip{0.85cm}
+\setaftersubsecskip{0.64cm}
+\setbeforesubsubsecskip{0.85cm}
+\setaftersubsubsecskip{0.64cm}
+\setbeforeparaskip{0.85cm}
+\setafterparaskip{0.64cm}
 
 % Varias formatacoes alternativas de titulo de capitulo/parte, espacamento de
 % paragrafo, e experimentos com quotchap/epigraph foram movidas para

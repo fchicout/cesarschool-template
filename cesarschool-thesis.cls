@@ -78,6 +78,7 @@
 % idioma, listas de quadros/gráficos/diagramas, comandos \fonteautor etc.)
 % ------------------------------------------------------------------------
 \RequirePackage{abntex2/abntex2-cesarschool}
+\renewcommand{\ABNTEXchapterfont}{\fontspec{Liberation Sans}} % TEST-ONLY
 
 % Aplica o grau/idioma escolhido via opções da classe. \aplicardespachogrduidioma
 % (que deriva \programaname etc. de \curso) continua sendo chamado em
@@ -100,13 +101,19 @@
 \RequirePackage{pdfpages} %para incluir pdf como páginas
 \RequirePackage{float}
 \RequirePackage{fontspec}
-\setmainfont{Arial}
+\setmainfont{Liberation Sans}
 \RequirePackage{lastpage}			% Usado pela Ficha catalográfica
 \RequirePackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \RequirePackage{color}				% Controle das cores
 \RequirePackage{graphicx}			% Inclusão de gráficos
 \RequirePackage{lipsum}				% para geração de dummy text
 \RequirePackage[alf,abnt-and-type=e,abnt-etal-list=3,abnt-etal-cite=3]{abntex2/abntex2cite}
+% glossaries carrega tracklang internamente, que tenta rastrear suporte do
+% datatool para cada idioma ativo do babel (french/spanish/brazil) e emite
+% avisos inofensivos de "No datatool support for dialect ..." quando não
+% encontra -- silenciados aqui (opção "nowarn" oficial do tracklang), sem
+% afetar a localização real do glossaries/babel.
+\PassOptionsToPackage{nowarn}{tracklang}
 \RequirePackage[acronym,nonumberlist,nogroupskip,noredefwarn]{glossaries}
 \RequirePackage{abntex2/url6023}
 \RequirePackage{multirow}
