@@ -2,7 +2,7 @@
 
 \ProvidesPackage{abntex2/abntex2-cesarschool}[2024/04/01 Criacao desta customizacao do abnTeX2]
 
-
+\RequirePackage{etoolbox} % usado pelo despachante de \degreetype / \templatelang abaixo
 
 \usepackage[table]{xcolor}
 \usepackage{ltablex} % para usar tabelas longas - quando é maior que 1 página
@@ -13,6 +13,100 @@
 \def\Year{\expandafter\YEAR\the\year}
 \def\YEAR#1#2#3#4{#1#2#3#4}
 
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Despachante de grau/idioma (single source of truth)
+%
+% custom.tex define apenas \degreetype{doutorado|mestrado|tcc} e
+% \templatelang{ptbr|enus}. As linhas abaixo derivam \programaname,
+% \trabalhoname, \novatitulacao, \preambulo e \preambuloatadefesa a partir
+% dessas duas escolhas, em vez de exigir que o autor edite manualmente
+% quatro blocos de comandos comentados em paralelo (como no template
+% original). Isso elimina o principal jeito de deixar o template num
+% estado inconsistente (ex.: título "Dissertação de Mestrado" com
+% \novatitulacao{Bacharel}).
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+\providecommand{\degreetype}{doutorado}
+\providecommand{\templatelang}{ptbr}
+
+\newcommand{\programaname}{}
+\newcommand{\trabalhoname}{}
+\newcommand{\novatitulacao}{}
+\newcommand{\placeholdertitulo}{}
+\newcommand{\placeholderautor}{}
+\newcommand{\fautorname}{}
+\newcommand{\fpesquisaname}{}
+\newcommand{\fadapt}{}
+\newcommand{\contentlangdir}{pt-br} % usado em \input{content/\contentlangdir/...}
+
+\newcommand{\aplicardespachogrduidioma}{%
+  \ifdefstring{\templatelang}{enus}{%
+    % -- en-US --
+    \ifdefstring{\degreetype}{doutorado}{%
+      \renewcommand{\programaname}{Doctoral Program in \curso}%
+      \renewcommand{\trabalhoname}{Doctoral Thesis }%
+      \renewcommand{\novatitulacao}{Doctor }%
+    }{}%
+    \ifdefstring{\degreetype}{mestrado}{%
+      \renewcommand{\programaname}{Master's Program in \curso}%
+      \renewcommand{\trabalhoname}{Master's Dissertation }%
+      \renewcommand{\novatitulacao}{Master }%
+    }{}%
+    \ifdefstring{\degreetype}{tcc}{%
+      \renewcommand{\programaname}{Undergraduate Program in \curso}%
+      \renewcommand{\trabalhoname}{Undergraduate Thesis }%
+      \renewcommand{\novatitulacao}{Bachelor }%
+    }{}%
+    \preambulo{{\trabalhoname}presented to the {\programaname} at {\instituicaoname}, as a partial requirement to obtain the degree of {\novatitulacao}in {\curso}.}%
+    \preambuloatadefesa{{\trabalhoname}presented to the {\programaname} at {\instituicaoname}, as a partial requirement to obtain the degree of {\novatitulacao}in {\curso} on <day> <month>, <year>.}%
+    \renewcommand{\placeholdertitulo}{\uppercase{\textbf{Enter your work's title here: }Subtitle :)}}%
+    \renewcommand{\placeholderautor}{\uppercase{Enter your full name here}}%
+    \renewcommand{\fautorname}{Prepared by the author.}%
+    \renewcommand{\fpesquisaname}{Research data.}%
+    \renewcommand{\fadapt}{Adapted from }%
+    \renewcommand{\contentlangdir}{en-us}%
+  }{%
+    % -- pt-BR (padrao) --
+    \ifdefstring{\degreetype}{doutorado}{%
+      \renewcommand{\programaname}{Programa de Doutorado em \curso}%
+      \renewcommand{\trabalhoname}{Tese de Doutorado }%
+      \renewcommand{\novatitulacao}{Doutor }%
+    }{}%
+    \ifdefstring{\degreetype}{mestrado}{%
+      \renewcommand{\programaname}{Programa de Mestrado em \curso}%
+      \renewcommand{\trabalhoname}{Dissertação de Mestrado }%
+      \renewcommand{\novatitulacao}{Mestre }%
+    }{}%
+    \ifdefstring{\degreetype}{tcc}{%
+      \renewcommand{\programaname}{Programa de Graduação em \curso}%
+      \renewcommand{\trabalhoname}{Trabalho de Conclusão de Curso }%
+      \renewcommand{\novatitulacao}{Bacharel }%
+    }{}%
+    \preambulo{{\trabalhoname}apresentada ao {\programaname} da {\instituicaoname}, como requisito parcial para obtenção do título de {\novatitulacao}em {\curso}.}%
+    \preambuloatadefesa{{\trabalhoname}apresentada ao {\programaname} da {\instituicaoname}, como requisito parcial para a obtenção do título de {\novatitulacao}em {\curso} em <dia> de <mes> de <ano>.}%
+    \renewcommand{\placeholdertitulo}{\uppercase{\textbf{Título do seu trabalho: }Subtítulo :)}}%
+    \renewcommand{\placeholderautor}{\uppercase{Insira aqui seu nome completo}}%
+    \renewcommand{\fautorname}{Elaborado pelo autor.}%
+    \renewcommand{\fpesquisaname}{Dados de pesquisa.}%
+    \renewcommand{\fadapt}{Adaptado de }%
+    \renewcommand{\contentlangdir}{pt-br}%
+  }%
+}
+
+% Seleciona o idioma babel ativo (nomes automaticos: Resumo/Abstract,
+% Sumario/Contents, Lista de Figuras/List of Figures, etc.). NAO chamar no
+% preambulo (custom.tex e' input antes de pacotes como listings, que
+% definem nomes que o babel tenta traduzir ao trocar de idioma -- isso
+% quebra com "Command \lstlistingname undefined"). Chamado apenas logo
+% apos \begin{document} em main.tex, pois o babel tambem reaplica o idioma
+% principal da classe (o ultimo listado em \documentclass) no inicio do
+% documento, entao uma troca feita so no preambulo seria sobrescrita de
+% qualquer forma.
+\newcommand{\aplicaridiomacorpo}{%
+  \ifdefstring{\templatelang}{enus}{\selectlanguage{english}}{\selectlanguage{brazil}}%
+}
 
 % ------------------------------------------------------------
 
@@ -691,9 +785,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Novos comandos para fontes de dados (legendas)
 %
-\newcommand{\fautorname}{Elaborado pelo autor.}
-\newcommand{\fpesquisaname}{Dados de pesquisa.}
-\newcommand{\fadapt}{Adaptado de }
 
 \newcommand{\fonteautor}{\par\medskip\ABNTEXfontereduzida\selectfont\textbf{\fontename} \fautorname \par\medskip}
 \newcommand{\fontepesquisa}{\par\medskip\ABNTEXfontereduzida\selectfont\textbf{\fontename} \fpesquisaname \par\medskip}
