@@ -8,7 +8,6 @@
 \RequirePackage{xcolor}
 \RequirePackage{ltablex}
 \RequirePackage{longtable}
-\RequirePackage{fontspec}
 
 % ------------------------------------------------------------------------------
 % REGRA DA BIBLIOTECA: Nome da Instituição & Cidade em Caixa-Alta
@@ -128,7 +127,11 @@
 % ------------------------------------------------------------------------------
 % Configurações de Tipografia e Fontes ABNT NBR 14724
 % ------------------------------------------------------------------------------
-\renewcommand{\ABNTEXchapterfont}{\fontspec{Liberation Sans}}
+\ifPDFTeX
+  \renewcommand{\ABNTEXchapterfont}{\sffamily}
+\else
+  \renewcommand{\ABNTEXchapterfont}{\fontspec{Liberation Sans}}
+\fi
 \renewcommand{\ABNTEXchapterfontsize}{\bfseries\normalsize}
 \renewcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont}
 \renewcommand{\ABNTEXsectionfontsize}{\normalsize\selectfont}
