@@ -1,37 +1,27 @@
-% referencie todos os arquivos de capítulos aqui, fique a vontade para
-% fazer a sua organização de diretórios
-%
-% Nota: este é o manifesto de capítulos do corpo do trabalho (não confundir
-% com o resumo/abstract, que fica em content/<idioma>/front-matter/resumo).
-% Os caminhos abaixo usam \contentlangdir para apontar automaticamente para
-% content/pt-br/ ou content/en-us/, conforme \templatelang em custom.tex.
-% --------------------------------------------------------------
-% Reference all your chapter files here -- feel free to organize
-% your own subdirectories.
-%
-% Note: this is the chapter-inclusion manifest for the main body
-% (not to be confused with the abstract, which lives at
-% content/<language>/front-matter/resumo). The paths below use
-% \contentlangdir to automatically point at content/pt-br/ or
-% content/en-us/, based on \templatelang in custom.tex.
+% ==============================================================================
+% MANIFESTO DE CAPÍTULOS DO CORPO / MAIN BODY CHAPTER MANIFEST
+% ==============================================================================
+% Referencie aqui os arquivos de capítulos do seu trabalho.
+% 
+% Os caminhos utilizam a macro \contentlangdir para alternar automaticamente
+% entre 'content/pt-br/' e 'content/en-us/' de acordo com o idioma escolhido
+% na opção da classe em main.tex.
+% ==============================================================================
 
-  \input{content/\contentlangdir/chapters/introducao/introduction}
+\input{content/\contentlangdir/chapters/introducao/introduction}
 
-  \input{content/\contentlangdir/chapters/trabalhos_relacionados/trabalhos_relacionados}
+\input{content/\contentlangdir/chapters/trabalhos_relacionados/trabalhos_relacionados}
 
-  \input{content/\contentlangdir/chapters/fundamentacao/fundamentacao}
+\input{content/\contentlangdir/chapters/fundamentacao/fundamentacao}
 
-  \input{content/\contentlangdir/chapters/metodologia/metodologia}
+\input{content/\contentlangdir/chapters/metodologia/metodologia}
 
-  \input{content/\contentlangdir/chapters/resultados/resultados}
+\input{content/\contentlangdir/chapters/resultados/resultados}
 
-  \input{content/\contentlangdir/chapters/discussao/discussao}
+\input{content/\contentlangdir/chapters/discussao/discussao}
 
-  \input{content/\contentlangdir/chapters/ameacas_validade/ameacas_validade}
+\input{content/\contentlangdir/chapters/ameacas_validade/ameacas_validade}
 
-  \input{content/\contentlangdir/chapters/trabalhos_futuros/trabalhos_futuros}
+\input{content/\contentlangdir/chapters/trabalhos_futuros/trabalhos_futuros}
 
-  \input{content/\contentlangdir/chapters/conclusao/conclusao}
-
-  % \input{content/\contentlangdir/chapters/outro_capitulo/capitulo_exemplo}
-  % Contém exemplo de código
+\input{content/\contentlangdir/chapters/conclusao/conclusao}

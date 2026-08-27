@@ -1,0 +1,188 @@
+% ==============================================================================
+% CESAR School LaTeX Template -- Core Styling Package
+% ==============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sty/cesar-core}[2026/08/27 CESAR School Core Formatting & Governance]
+
+\RequirePackage{etoolbox}
+\RequirePackage{xcolor}
+\RequirePackage{ltablex}
+\RequirePackage{longtable}
+\RequirePackage{fontspec}
+
+% ------------------------------------------------------------------------------
+% REGRA DA BIBLIOTECA: Nome da Instituição & Cidade em Caixa-Alta
+% ------------------------------------------------------------------------------
+% 1. Apenas "CESAR" em caixa-alta: CESAR School
+\providecommand{\instituicaoname}{CESAR School}
+
+% Ano dinâmico
+\def\Year{\expandafter\YEAR\the\year}
+\def\YEAR#1#2#3#4{#1#2#3#4}
+
+% ------------------------------------------------------------------------------
+% Despachante de Grau e Idioma
+% ------------------------------------------------------------------------------
+\providecommand{\degreetype}{doutorado}
+\providecommand{\templatelang}{pt-br}
+
+\newcommand{\programaname}{}
+\newcommand{\trabalhoname}{}
+\newcommand{\novatitulacao}{}
+\newcommand{\placeholdertitulo}{}
+\newcommand{\placeholderautor}{}
+\newcommand{\fautorname}{}
+\newcommand{\fpesquisaname}{}
+\newcommand{\fadapt}{}
+\newcommand{\contentlangdir}{pt-br}
+\providecommand{\preambuloatadefesa}[1]{}
+
+\newcommand{\aplicardespachogrduidioma}{%
+  \ifboolexpr{ test {\ifdefstring{\templatelang}{en-us}} or test {\ifdefstring{\templatelang}{enus}} }{%
+    % --- en-US ---
+    \ifdefstring{\degreetype}{doutorado}{%
+      \renewcommand{\programaname}{Professional Doctoral Program in \curso}%
+      \renewcommand{\trabalhoname}{Doctoral Thesis }%
+      \renewcommand{\novatitulacao}{Doctor }%
+    }{}%
+    \ifdefstring{\degreetype}{mestrado}{%
+      \renewcommand{\programaname}{Professional Master's Program in \curso}%
+      \renewcommand{\trabalhoname}{Master's Dissertation }%
+      \renewcommand{\novatitulacao}{Master }%
+    }{}%
+    \ifdefstring{\degreetype}{tcc}{%
+      \renewcommand{\programaname}{Undergraduate Program in \curso}%
+      \renewcommand{\trabalhoname}{Undergraduate Thesis }%
+      \renewcommand{\novatitulacao}{Bachelor }%
+    }{}%
+    \preambulo{{\trabalhoname}presented to the {\programaname} at {\instituicaoname}, as a partial requirement to obtain the degree of {\novatitulacao}in {\curso}.}%
+    \renewcommand{\preambuloatadefesa}[1]{{\trabalhoname}presented to the {\programaname} at {\instituicaoname}, as a partial requirement to obtain the degree of {\novatitulacao}in {\curso}.}%
+    \renewcommand{\placeholdertitulo}{\uppercase{\textbf{Enter your work's title here: }Subtitle :)}}%
+    \renewcommand{\placeholderautor}{\uppercase{Enter your full name here}}%
+    \renewcommand{\fautorname}{Prepared by the author.}%
+    \renewcommand{\fpesquisaname}{Research data.}%
+    \renewcommand{\fadapt}{Adapted from }%
+    \renewcommand{\contentlangdir}{en-us}%
+  }{%
+    % --- pt-BR (padrão) ---
+    \ifdefstring{\degreetype}{doutorado}{%
+      \renewcommand{\programaname}{Doutorado Profissional em \curso}%
+      \renewcommand{\trabalhoname}{Tese de Doutorado }%
+      \renewcommand{\novatitulacao}{Doutor }%
+    }{}%
+    \ifdefstring{\degreetype}{mestrado}{%
+      \renewcommand{\programaname}{Mestrado Profissional em \curso}%
+      \renewcommand{\trabalhoname}{Dissertação de Mestrado }%
+      \renewcommand{\novatitulacao}{Mestre }%
+    }{}%
+    \ifdefstring{\degreetype}{tcc}{%
+      \renewcommand{\programaname}{Programa de Graduação em \curso}%
+      \renewcommand{\trabalhoname}{Trabalho de Conclusão de Curso }%
+      \renewcommand{\novatitulacao}{Bacharel }%
+    }{}%
+    \preambulo{{\trabalhoname}apresentada ao {\programaname} da {\instituicaoname}, como requisito parcial para obtenção do título de {\novatitulacao}em {\curso}.}%
+    \renewcommand{\preambuloatadefesa}[1]{{\trabalhoname}apresentada ao {\programaname} da {\instituicaoname}, como requisito parcial para a obtenção do título de {\novatitulacao}em {\curso}.}%
+    \renewcommand{\placeholdertitulo}{\uppercase{\textbf{Título do seu trabalho: }Subtítulo :)}}%
+    \renewcommand{\placeholderautor}{\uppercase{Insira aqui seu nome completo}}%
+    \renewcommand{\fautorname}{Elaborado pelo autor.}%
+    \renewcommand{\fpesquisaname}{Dados de pesquisa.}%
+    \renewcommand{\fadapt}{Adaptado de }%
+    \renewcommand{\contentlangdir}{pt-br}%
+  }%
+}
+
+\newcommand{\aplicaridiomacorpo}{%
+  \ifboolexpr{ test {\ifdefstring{\templatelang}{en-us}} or test {\ifdefstring{\templatelang}{enus}} }{\selectlanguage{english}}{\selectlanguage{brazil}}%
+}
+
+% ------------------------------------------------------------------------------
+% Comandos de Dados adicionais (abnTeX2)
+% ------------------------------------------------------------------------------
+\providecommand{\imprimirareaconcentracaoRotulo}{}
+\providecommand{\imprimirareaconcentracao}{}
+\newcommand{\areaconcentracao}[2][\areaconcentracaoname]%
+  {\renewcommand{\imprimirareaconcentracaoRotulo}{#1}%
+   \renewcommand{\imprimirareaconcentracao}{#2}}
+
+\providecommand{\imprimirorientadorRotulo}{}
+\providecommand{\imprimirorientador}{}
+\renewcommand{\orientador}[2][\orientadorname]%
+  {\renewcommand{\imprimirorientadorRotulo}{#1}%
+   \renewcommand{\imprimirorientador}{#2}}
+
+\providecommand{\imprimircoorientadorRotulo}{}
+\providecommand{\imprimircoorientador}{}
+\renewcommand{\coorientador}[2][\coorientadorname]%
+  {\renewcommand{\imprimircoorientadorRotulo}{#1}%
+   \renewcommand{\imprimircoorientador}{#2}}
+
+\providecommand{\imprimirprograma}{}
+\newcommand{\programa}[1]{\renewcommand{\imprimirprograma}{#1}}
+
+\providecommand{\imprimiremailprograma}{}
+\newcommand{\emailprograma}[1]{\renewcommand{\imprimiremailprograma}{#1}}
+
+\providecommand{\imprimirsiteprograma}{}
+\newcommand{\siteprograma}[1]{\renewcommand{\imprimirsiteprograma}{#1}}
+
+% ------------------------------------------------------------------------------
+% Configurações de Tipografia e Fontes ABNT NBR 14724
+% ------------------------------------------------------------------------------
+\renewcommand{\ABNTEXchapterfont}{\fontspec{Liberation Sans}}
+\renewcommand{\ABNTEXchapterfontsize}{\bfseries\normalsize}
+\renewcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize\selectfont}
+\renewcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont}
+\renewcommand{\ABNTEXsubsectionfontsize}{\bfseries\normalsize\selectfont}
+\renewcommand{\ABNTEXsubsubsectionfont}{\itshape\ABNTEXsubsectionfont}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\itshape\bfseries\normalsize}
+
+% Ajuste de espaçamento do sumário
+\setlength{\cftbeforechapterskip}{0em}
+\renewcommand{\cftchapterfont}{\bfseries\normalsize}
+\renewcommand{\cftchapterpagefont}{\cftchapterfont}
+\renewcommand{\cftsectionfont}{\normalsize}
+\renewcommand{\cftsectionpagefont}{\cftsectionfont}
+\renewcommand{\cftsubsectionfont}{\bfseries\normalsize}
+\renewcommand{\cftsubsectionpagefont}{\cftsubsectionfont}
+\renewcommand{\cftsubsubsectionfont}{\itshape\normalsize}
+\renewcommand{\cftsubsubsectionpagefont}{\itshape\cftsubsubsectionfont}
+\renewcommand{\cftparagraphfont}{\itshape\bfseries}
+\renewcommand{\cftparagraphpagefont}{\bfseries\cftparagraphfont}
+
+% Converte títulos de seções no sumário para maiúsculas
+\makeatletter
+\let\oldcontentsline\contentsline
+\def\contentsline#1#2{%
+	\expandafter\ifx\csname l@#1\endcsname\l@section
+	\expandafter\@firstoftwo
+	\else
+	\expandafter\@secondoftwo
+	\fi
+	{%
+		\oldcontentsline{#1}{\MakeTextUppercase{#2}}%
+	}{%
+		\oldcontentsline{#1}{#2}%
+	}%
+}
+\makeatother
+
+% Espaçamentos nativos do memoir
+\setlength{\afterchapskip}{0.85cm}
+\setbeforesecskip{0.85cm}
+\setaftersecskip{0.64cm}
+\setbeforesubsecskip{0.85cm}
+\setaftersubsecskip{0.64cm}
+\setbeforesubsubsecskip{0.85cm}
+\setaftersubsubsecskip{0.64cm}
+\setbeforeparaskip{0.85cm}
+\setafterparaskip{0.64cm}
+
+% Macros para fontes de legendas/tabelas/figuras
+\newcommand{\fonteautor}{\par\medskip\ABNTEXfontereduzida\selectfont\textbf{\fontename} \fautorname \par\medskip}
+\newcommand{\fontepesquisa}{\par\medskip\ABNTEXfontereduzida\selectfont\textbf{\fontename} \fpesquisaname \par\medskip}
+\newcommand{\fonteadapt}[1]{\par\medskip\ABNTEXfontereduzida\selectfont\textbf{\fontename} \fadapt {#1}. \par\medskip}
+\newcommand{\fonteref}[1]{\par\medskip\ABNTEXfontereduzida\selectfont\textbf{\fontename} {#1}\par\medskip}
+
+\endinput

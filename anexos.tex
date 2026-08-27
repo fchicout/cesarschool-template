@@ -1,28 +1,22 @@
-
-% ----------------------
-% força para que não exiba subtítulos em apêndices no sumário
-% adicione/remova \input lines abaixo para seus próprios anexos
-% -----------------------
-% forces subtitles not to be shown for annexes in the table of contents
-% add/remove \input lines below for your own annexes
-% -----------------------
+% ==============================================================================
+% ANEXOS / ANNEXES
+% ==============================================================================
+% Anexos são documentos de Terceiros (não elaborados pelo autor, ex.: normas,
+% estatutos, licenças) que servem de fundamentação, comprovação ou ilustração.
+% ==============================================================================
 
 \begin{anexosenv}
-\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
-\makeatletter
-\addtocontents{toc}{%
-  \begingroup
-  \let\protect\l@chapter\protect\l@section
-  \let\protect\l@section\protect\l@subsection
-}
-\makeatother
-% Imprime uma página indicando o início dos apêndices
-% \partapendices
+  % Oculta subtítulos dos anexos no sumário para manter conformidade ABNT
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+  \makeatletter
+  \addtocontents{toc}{%
+    \begingroup
+    \let\protect\l@chapter\protect\l@section
+    \let\protect\l@section\protect\l@subsection
+  }
+  \makeatother
 
-\input{content/\contentlangdir/anexos/anexoA}
+  \input{content/\contentlangdir/anexos/anexoA}
 
-\addtocontents{toc}{\endgroup}
+  \addtocontents{toc}{\endgroup}
 \end{anexosenv}
-
-
-

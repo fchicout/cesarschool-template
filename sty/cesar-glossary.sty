@@ -1,0 +1,27 @@
+% ==============================================================================
+% CESAR School LaTeX Template -- Glossaries & Acronyms Governance
+% ==============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sty/cesar-glossary}[2026/08/27 CESAR School Glossary Setup]
+
+\PassOptionsToPackage{nowarn}{tracklang}
+\RequirePackage[acronym,nonumberlist,nogroupskip,noredefwarn]{glossaries}
+
+\renewcommand*{\glsseeformat}[3][\seename]{\textit{#1} \glsseelist{#2}}
+\renewcommand*{\glspostdescription}{} % remove trailing dot
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
+
+% Custom glossary style
+\newglossarystyle{modsuper}{%
+  \glossarystyle{super}%
+  \renewcommand{\glsgroupskip}{}%
+  \renewenvironment{theglossary}%
+  {%
+    \begin{longtable}{L{0.2\textwidth}L{0.8\textwidth}}%
+  }%
+  {%
+    \end{longtable}%
+  }%
+}
+
+\endinput

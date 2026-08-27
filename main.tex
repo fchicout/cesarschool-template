@@ -1,257 +1,122 @@
-%% abtex2-modelo-trabalho-academico.tex, v-1.7.1 laurocesar
-%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
-%%
-%% This work may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%   http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
-%%
-%% This work has the LPPL maintenance status `maintained'.
-%% 
-%% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
-%% http://abntex2.googlecode.com/
-%%
-%% This work consists of the files abntex2-modelo-trabalho-academico.tex,
-%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
-%%
-
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-% abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
-% mestrado e trabalhos monograficos em geral) em conformidade com 
-% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
-% Apresentacao
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-
-
-%%%%%%%%%%%%%%%%%%
+% ==============================================================================
+% MODELO DE TRABALHO ACADÊMICO -- CESAR SCHOOL
+% CESAR School Academic Thesis / Dissertation / Undergraduate Capstone Template
+% ==============================================================================
+% Este é o arquivo principal (driver) que organiza a estrutura do seu trabalho.
 %
-% As alterações realizadas no leiaute original do abntex2 disponibilizado 
-% no sharelatex adaptaram o leiaute do abntex2 aos requisitos mínimos
-% para escrita de dissertações e teses customizadas para o 
-% centro de informática da ufpe.
-%
-% Bruno Maciel <bifm@cin.ufpe.com> 20/10/2016
-% Daniel Severo Estrázulas <dse@cin.ufpe.br> 19/10/2020
-% Alterações realizadas para o template da biblioteca atualizado disponibilizado no site Versão 07.10.2020 (1.3) revisado pelas bibliotecárias do setor bibccen.pt@ufpe.br
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COMO USAR ESTE TEMPLATE:
+%   1. Configuração de Grau e Idioma:
+%      Escolha abaixo seu grau (phd, msc ou undergrad) e idioma (ptbr ou enus).
+%   2. Dados do Trabalho:
+%      Abra o arquivo 'config/metadata.tex' e preencha título, autor, curso, orientador.
+%   3. Pacotes do Usuário (Opcional):
+%      Se precisar de pacotes extras, adicione-os em 'config/user-packages.tex'.
+%   4. Conteúdo dos Capítulos:
+%      Escreva seus capítulos na pasta 'content/pt-br/chapters/' (ou 'content/en-us/chapters/').
+% ==============================================================================
 
-%%%%%%%%%%%%%%%%%%
-%
-% As alterações realizadas no leiaute original do 
-% MODELO LATEX ATUALIZADO BIBLIOTECA DO CCEN-UFPE - Versão 1.4 (16.10.2020) 
-% disponibilizado no overleaf adaptando o leiaute do modelo do CIn aos requisitos 
-% mínimos para escrita de dissertações e teses customizadas para a
-% CESAR School. Revisada pelo setor de biblioteca da CESAR School em 04/04/2024.
-%
-% Tiago Barros <tgfb@cesar.school> Abril/2024
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ------------------------------------------------------------------------------
+% 1. DOCUMENT CLASS CONFIGURATION
+% Grau / Degree: phd | msc | undergrad -- Idioma / Language: pt-br | en-us
+% ------------------------------------------------------------------------------
+\documentclass[phd, pt-br]{cesarschool-thesis}
 
-% =============================================================
-% COMECE POR AQUI / START HERE
-% =============================================================
-% Este arquivo (main.tex) monta o documento inteiro, mas você
-% raramente precisa editá-lo. Para configurar seu trabalho:
-%   1. Na linha \documentclass abaixo, escolha seu grau (phd,
-%      msc ou undergrad) e idioma (ptbr ou enus).
-%   2. Abra custom.tex e preencha \curso, \titulo, \autor,
-%      \orientador etc.
-%   3. Escreva seu conteúdo em content/pt-br/ ou content/en-us/
-%      (o mesmo caminho relativo existe nas duas pastas -- edite
-%      a que corresponde ao idioma escolhido acima).
-%   4. body.tex lista os capítulos incluídos; appendix.tex e
-%      anexos.tex fazem o mesmo para apêndices e anexos.
-% Todas as configurações avançadas (pacotes, cores, fontes) vivem
-% em cesarschool-thesis.cls -- não é necessário abri-lo.
-% Consulte README.md para o mapa completo de pastas.
-% -----------------------------------------------------------
-% This file (main.tex) assembles the whole document, but you
-% will rarely need to edit it. To configure your own work:
-%   1. On the \documentclass line below, choose your degree
-%      (phd, msc, or undergrad) and language (ptbr or enus).
-%   2. Open custom.tex and fill in \curso, \titulo, \autor,
-%      \orientador, etc.
-%   3. Write your content under content/pt-br/ or content/en-us/
-%      (the same relative paths exist in both -- edit whichever
-%      matches the language you chose above).
-%   4. body.tex lists the included chapters; appendix.tex and
-%      anexos.tex do the same for appendices and annexes.
-% All advanced settings (packages, colors, fonts) live in
-% cesarschool-thesis.cls -- you shouldn't need to open it.
-% See README.md for the full folder map.
-% =============================================================
+% ------------------------------------------------------------------------------
+% 2. CONFIGURAÇÕES E METADADOS DO USUÁRIO / USER METADATA & PACKAGES
+% ------------------------------------------------------------------------------
+\input{config/metadata}
+\input{config/user-packages}
 
-% Grau/Degree: phd | msc | undergrad -- Idioma/Language: ptbr | enus
-\documentclass[phd, ptbr]{cesarschool-thesis}
-
-% ----------------------------------------------------------
-% PERSONALIZAÇÃO DO USUÁRIO COM INFORMAÇÕES DO TRABALHO
-% ----------------------------------------------------------
-\input{custom}
-
-% ----------------------------------------------------------
-% COMPILA O ÍNDICE
-% ----------------------------------------------------------
-\makeindex
-% ---
-% ----------------------------------------------------------
-% LISTA E ABREVIATURAS E SIGLAS
-% ----------------------------------------------------------
+% ------------------------------------------------------------------------------
+% 3. GLOSSÁRIOS E ACRÔNIMOS / GLOSSARIES & ACRONYMS
+% ------------------------------------------------------------------------------
 \input{content/\contentlangdir/front-matter/glossaries}
 \input{content/\contentlangdir/front-matter/acronyms}
-
-
-
 \makenoidxglossaries
-%\printnoidxglossary
-% \printnoidxglossary[type={main}]
-% \printnoidxglossary[type={acronym}]
-\renewcommand*{\glsseeformat}[3][\seename]{\textit{#1}
-\glsseelist{#2}}
 
-\renewcommand*{\glspostdescription}{} % remove trailing dot
-\renewcommand{\glsnamefont}[1]{\textbf{#1}}
+\makeindex
 
-% ----------------------------------------------------------
-% INÍCIO DO DOCUMENTO
-% ----------------------------------------------------------
-
+% ==============================================================================
+% INÍCIO DO DOCUMENTO / DOCUMENT BODY
+% ==============================================================================
 \begin{document}
 
-\frenchspacing % Retira espaço extra obsoleto entre as frases.
+\frenchspacing % Retira espaço extra obsoleto entre frases.
 
+% ------------------------------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS / PRE-TEXTUAL ELEMENTS
+% Nota da Biblioteca: As páginas pré-textuais são contadas mas NÃO exibem número.
+% ------------------------------------------------------------------------------
+\pagestyle{empty}
 
-% Se você quiser alterar o conteúdo da capa, você pode fazêlo em custom.tex
+% Capa e Folha de Rosto (Regra da Biblioteca: Recife em MAIÚSCULAS, CESAR School)
 \imprimircapa
-\imprimirfolhaderosto*~
-\input{content/\contentlangdir/front-matter/ficha}
-%\input{content/\contentlangdir/front-matter/ata_defesa}
-%\input{content/\contentlangdir/front-matter/folha_aprovacao_original}
-%\input{content/\contentlangdir/front-matter/dedicatoria}
-\input{content/\contentlangdir/front-matter/agradecimentos}
-%\input{content/\contentlangdir/front-matter/epigrafe}
-\input{content/\contentlangdir/front-matter/resumo} % ABNT exige o resumo -- nao comente esta linha
+\imprimirfolhaderosto*
 
-% ----------------------------------------------------------
-% LISTA DE FIGURAS (Ilustrações)
-% ----------------------------------------------------------
+% Ficha Catalográfica (fornecida pela biblioteca no formato PDF)
+\input{content/\contentlangdir/front-matter/ficha}
+
+% Folha de Aprovação Placeholder (Regra da Biblioteca: Inserida por padrão após a Ficha)
+% Substitua por sua folha de aprovação assinada se já a possuir.
+\imprimirfolhadeaprovacaoplaceholder
+
+% Elementos Opcionais (Agradecimentos, Dedicatória, Epígrafe)
+\input{content/\contentlangdir/front-matter/agradecimentos}
+%\input{content/\contentlangdir/front-matter/dedicatoria}
+%\input{content/\contentlangdir/front-matter/epigrafe}
+
+% Resumo e Abstract (ABNT NBR 14724 exige o resumo)
+\input{content/\contentlangdir/front-matter/resumo}
+
+% Listas de Ilustrações, Tabelas, Códigos e Símbolos
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
 
-% ----------------------------------------------------------
-% LISTA DE GRAFICOS - quando tiver mais de 10 Graficos
-% ----------------------------------------------------------
-% \pdfbookmark[0]{\listofgraficosname}{logr} % caso não tenha mais de 10 graficos, comente esta linha 
-% \listofgraficos* % caso não tenha mais de 10 graficos, comente esta linha 
-% \cleardoublepage % caso não tenha mais de 10 graficos, comente esta linha 
-
-% ----------------------------------------------------------
-% LISTA DE DIAGRAMAS - quando tiver mais de 10 Diagramas
-% ----------------------------------------------------------
-% \pdfbookmark[0]{\listofdiagramasname}{lod} % caso não tenha mais de 10 diagramas, comente esta linha 
-% \listofdiagramas* % caso não tenha mais de 10 diagramas, comente esta linha 
-% \cleardoublepage % caso não tenha mais de 10 diagramas, comente esta linha 
-
-% ----------------------------------------------------------
-% LISTA DE QUADROS
-% ----------------------------------------------------------
-%\pdfbookmark[0]{\listofquadrosname}{loq} % caso não tenha mais de 10 quadros, comente esta linha 
-%\listofquadros* % caso não tenha mais de 10 quadros, comente esta linha 
-%\cleardoublepage % caso não tenha mais de 10 quadros, comente esta linha 
-
-% ----------------------------------------------------------
-% LISTA DE TABELAS
-% ---------------------------------------------------------
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
-  
-% ----------------------------------------------------------
-% LISTA DE CÓDIGOS FONTES
-% ----------------------------------------------------------
-\pdfbookmark[0]{\lstlistingname}{lol} % caso não tenha código fonte, comente as linhas abaixo
-\counterwithout{lstlisting}{chapter}
 
-\let\oldlstlistoflistings\lstlistoflistings
-{
-\let\oldnumberline\numberline
-\newcommand{\algnumberline}[1]{\lstlistingname~#1~\enspace--~\enspace}
-\renewcommand{\numberline}{\algnumberline}
+% Lista de Códigos-Fonte (se houver)
+\imprimirlistadecodigos
 
-\begin{KeepFromToc}
-\lstlistoflistings
-\end{KeepFromToc}
-}
-\cleardoublepage
-
-% ----------------------------------------------------------
-% LISTA E ABREVIATURAS E SIGLAS
-% ----------------------------------------------------------
-% \printglossary[type=\acronymtype,title={\listadesiglasname},nonumberlist]
-% \printglossaries
-% compile uma vez com o comando \printglossaries e depois compile novamente com o comando \printglossaries comentado para as páginas glossário e siglas serem ocultadas.
-
-% ----------------------------------------------------------
-% LISTA E ABREVIATURAS E SIGLAS
-% ----------------------------------------------------------
+% Lista de Siglas e Glossário (se houver)
 \setglossarystyle{super}
-%\printnoidxglossary[style=super,type=\acronymtype,title={\listadesiglasname},nonumberlist]
 \printglossary[style=super, type=\acronymtype]
 \cleardoublepage
 
-% ----------------------------------------------------------
-% LISTA DE SIMBOLOS
-% ----------------------------------------------------------
+% Lista de Símbolos
 \input{content/\contentlangdir/front-matter/list_simbol}
 
-% ----------------------------------------------------------
-% SUMÁRIO
-% ----------------------------------------------------------
+% Sumário / Table of Contents
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \cleardoublepage
 
-% \setcounter{page}{13}
-\setcounter{tocdepth}{2}
-\setcounter{table}{0}
-
-% ----------------------------------------------------------
-% ELEMENTOS TEXTUAIS
-% ----------------------------------------------------------
+% ------------------------------------------------------------------------------
+% ELEMENTOS TEXTUAIS / MAIN TEXTUAL CONTENT
+% Inicia a numeração visível das páginas a partir do Capítulo 1
+% ------------------------------------------------------------------------------
 \textual
 
 \input{body}
 
-\bookmarksetup{startatroot}% 
-
-% ----------------------------------------------------------
-% ELEMENTOS PÓS-TEXTUAIS
-% ----------------------------------------------------------
+% ------------------------------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS / POST-TEXTUAL ELEMENTS
+% ------------------------------------------------------------------------------
 \postextual
 
-% ----------------------------------------------------------
-% Referências bibliográficas
-% ----------------------------------------------------------
-%\bibliographystyle{abntex2/abntexalfenglish} %caso seja em inglês, retire o comentário desta linha e comente a seguinte
-\bibliographystyle{abntex2/abntex2-alf}
-\bibliography{references2}
+% Referências Bibliográficas (Regra ABNT)
+\bibliographystyle{bib/abntex2-alf}
+\bibliography{bib/references}
 
-% ----------------------------------------------------------
-% Apêndices
-% ----------------------------------------------------------
+% Apêndices (produzidos pelo próprio autor)
 \include{appendix}
-% ----------------------------------------------------------
-% Anexos
-% ----------------------------------------------------------
+
+% Anexos (documentos de terceiros)
 \include{anexos}
 
+% Índice Remissivo
 \printindex
-
 
 \end{document}

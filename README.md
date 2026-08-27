@@ -1,62 +1,71 @@
-# CESAR School LaTeX Thesis/Dissertation Template
+# CESAR School LaTeX Thesis / Dissertation Template
 
-An [abnTeX2](https://www.abntex.net.br/)-based LaTeX template for CESAR School
-theses (Doutorado), dissertations (Mestrado), and undergraduate capstones (TCC),
-formatted to comply with ABNT NBR 14724:2011. Supports both **pt-BR** and
-**en-US** as output languages.
+An [abnTeX2](https://www.abntex.net.br/)-based, highly modular, clean LaTeX template for CESAR School theses (Doutorado), dissertations (Mestrado), and undergraduate capstones (TCC), fully compliant with **ABNT NBR 14724:2011** and official **CESAR School Library Normalization Rules**.
 
-## Quick start
+Supports both **pt-BR** and **en-US** output languages natively.
 
-1. Copy this project (or, on Overleaf, use "Copy Project" from the template
-   gallery listing).
-2. Compile with **XeLaTeX** (required — the template uses `fontspec` to set
-   Arial as the main font). On Overleaf: Menu > Settings > Compiler > XeLaTeX.
-3. Open `custom.tex` and fill in:
-   - `\degreetype` — `doutorado`, `mestrado`, or `tcc`
-   - `\templatelang` — `ptbr` or `enus`
-   - `\curso`, `\titulo`, `\autor`, `\orientador`, etc.
-4. Replace the example chapter text under `content/<language>/` with your own.
-5. Get your `ficha catalográfica` PDF from the CESAR School library and drop
-   it in `library/ficha.pdf`.
+---
 
-The template recompiles correctly for any `\degreetype`/`\templatelang`
-combination — all boilerplate text (cover, title page, preamble sentences,
-auto-generated names like "Abstract"/"Resumo", "Contents"/"Sumário") switches
-automatically. See the comments in `custom.tex` and
-`abntex2/abntex2-cesarschool.sty` for details.
+## 🚀 Quick Start
 
-## Folder layout
+1. **Compiler Selection:** Compile using **XeLaTeX** (required for `fontspec` typography).
+   * *Overleaf:* Menu > Settings > Compiler > **XeLaTeX**.
+   * *Local:* Run `latexmk` (pre-configured via `latexmkrc`).
+2. **Document Configuration:**
+   * Open `main.tex` and select your degree (`phd`, `msc`, or `undergrad`) and language (`pt-br` or `en-us`):
+     ```latex
+     \documentclass[phd, pt-br]{cesarschool-thesis}
+     ```
+   * Open `config/metadata.tex` to fill in your work's title, author, course, advisor, and co-advisor.
+3. **Institutional PDF Drop-in:**
+   * Place your official catalog card PDF from the library into `library/ficha.pdf`.
+4. **Writing Your Content:**
+   * Write your main text under `content/pt-br/chapters/` (or `content/en-us/chapters/`).
+
+---
+
+## 🏛️ Official CESAR School Library Rules Built-in
+
+This template automatically enforces the official CESAR School Library normalization standards:
+
+1. **Institutional Name:** Enforced strictly as `CESAR School` (only *CESAR* in uppercase).
+2. **City Location:** Location (`RECIFE`) is automatically converted to **UPPERCASE** on Cover, Title Page, and Approval Sheet.
+3. **Pre-Textual Pagination Governance:** Pre-textual elements count silently per ABNT rules, but visible page numbers only render starting on Page 1 of Chapter 1 (`\textual`), preventing spurious headers.
+4. **Approval Sheet Placeholder:** Automatically renders an official approval sheet placeholder page after the catalog card (`ficha catalográfica`) until replaced with a signed scan.
+5. **Official Course Registry:** Metadata configuration natively supports the 6 official CESAR School degree programs:
+   - **Graduação / Bacharelado:** `Bacharelado em Ciência da Computação`, `Bacharelado em Design`, `Bacharelado em ADM Tech`
+   - **Mestrado Profissional:** `Mestrado Profissional em Engenharia de Software` (MPES), `Mestrado Profissional em Design` (MPD)
+   - **Doutorado Profissional:** `Doutorado Profissional em Engenharia de Software` (DPES)
+
+---
+
+## 📁 Modular Directory Architecture
 
 ```
-main.tex              entry point; compiles the whole document
-custom.tex             fill this in: title, author, advisor, degree type, language
-body.tex               chapter-inclusion manifest for the main body
-appendix.tex/anexos.tex  appendix/annex manifests
-packages.tex            extra package config (currently: code-listing styling)
-references2.bib         your bibliography
-
-abntex2/                the abnTeX2 engine (vendored, do not edit) plus
-                         abntex2-cesarschool.sty (CESAR School's customization
-                         layer — degree/language dispatch, cover page, fonts, etc.)
-figures/                 shared binary images, one subfolder per chapter
-equations/               shared, language-neutral reusable equation macros
-library/                 institutional PDFs: ficha catalográfica, approval-sheet
-                          template — same regardless of \templatelang
-fonts/                   bundled Arial TTF (see NOTICE.md re: licensing)
-
-content/
-  pt-br/                 Portuguese chapter text, front matter, appendices
-  en-us/                 English chapter text, front matter, appendices
-                         (mirrors the pt-br/ tree file-for-file)
+cesarschool-template/
+├── main.tex                    # Clean declarative driver file (~40 lines)
+├── cesarschool-thesis.cls      # Master LaTeX class
+├── latexmkrc                   # Build automation configuration for XeLaTeX
+├── config/
+│   ├── metadata.tex            # User work metadata (title, author, course, advisor)
+│   └── user-packages.tex       # Custom user packages and commands
+├── sty/
+│   ├── cesar-core.sty          # Typography, colors, ABNT page geometry, city uppercase
+│   ├── cesar-cover.sty         # Cover, Title Page & Approval Sheet Placeholder
+│   ├── cesar-floats.sty        # Quadros, Gráficos, Diagramas & Listings governance
+│   └── cesar-glossary.sty      # Acronyms & Glossaries styling
+├── bib/
+│   ├── references.bib          # Bibliography file
+│   └── abntex2-alf.bst         # ABNT citation style files
+├── content/
+│   ├── pt-br/                  # Portuguese content (front-matter, chapters, appendices)
+│   └── en-us/                  # English content (mirrors pt-br directory tree)
+├── figures/                    # Shared graphics & illustrations
+└── library/                    # Institutional PDFs (ficha catalográfica, signed approval)
 ```
 
-`content/pt-br/` and `content/en-us/` are structured identically — same
-subfolders, same filenames — so `\templatelang` in `custom.tex` can switch
-between them by just changing which directory gets `\input`. When adding a
-new chapter or section, add the file to **both** trees.
+---
 
-## Attribution and licensing
+## 📜 Attribution and Licensing
 
-See [`NOTICE.md`](NOTICE.md) for the full attribution chain (abnTeX2 → UFPE
-CIn → CESAR School) and [`LICENSE.txt`](LICENSE.txt) for the LPPL license
-text.
+See [`NOTICE.md`](NOTICE.md) for the full attribution chain (abnTeX2 → UFPE CIn → CESAR School) and [`LICENSE.txt`](LICENSE.txt) for the LPPL license text.

@@ -1,0 +1,97 @@
+% ==============================================================================
+% CESAR School LaTeX Template -- Custom Floats & Listings Package
+% ==============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sty/cesar-floats}[2026/08/27 CESAR School Floats, Lists & Listings Governance]
+
+\RequirePackage{listings}
+\RequirePackage{chngcntr}
+\RequirePackage{adjustbox}
+
+% ------------------------------------------------------------------------------
+% Estilo de Códigos-Fonte (Listings)
+% ------------------------------------------------------------------------------
+\definecolor{javared}{rgb}{0.6,0,0}
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35}
+\definecolor{javapurple}{rgb}{0.5,0,0.35}
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{gray}{rgb}{.4,.4,.4}
+\definecolor{cinza}{HTML}{FCF8F8}
+
+\lstset{
+  language=Python,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\color{javapurple}\bfseries,
+  stringstyle=\color{pblue},
+  commentstyle=\color{javagreen},
+  morecomment=[s][\color{javadocblue}]{/**}{*/},
+  morecomment=[s][\color{gray}]{@}{\ },
+  numbers=left,
+  numberstyle=\tiny\color{black},
+  backgroundcolor=\color{cinza},
+  stepnumber=2,
+  numbersep=8pt,
+  xleftmargin=14pt,
+  tabsize=4,
+  showspaces=false,
+  showstringspaces=false,
+  breaklines=true,
+}
+
+% Macro limpa para renderização da Lista de Códigos Fontes no documento
+\newcommand{\imprimirlistadecodigos}{%
+  \pdfbookmark[0]{\lstlistingname}{lol}
+  \counterwithout{lstlisting}{chapter}
+  \begingroup
+    \let\oldnumberline\numberline
+    \newcommand{\algnumberline}[1]{\lstlistingname~##1~\enspace--~\enspace}
+    \renewcommand{\numberline}{\algnumberline}
+    \begin{KeepFromToc}
+      \lstlistoflistings
+    \end{KeepFromToc}
+  \endgroup
+  \cleardoublepage
+}
+
+% ------------------------------------------------------------------------------
+% Definição de Ambientes Flutuantes Nativo Memoir (Quadros, Gráficos, Diagramas)
+% ------------------------------------------------------------------------------
+\makeatletter
+
+% 1. QUADRO
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+\newfloat[chapter]{quadro}{lof}{\quadroname}
+\newlistof{listofquadros}{lof}{\listfigurename}
+\newlistentry{quadro}{lof}{0}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+\setfloatlocations{quadro}{hbtp}
+
+% 2. GRÁFICO
+\newcommand{\graficoname}{Gráfico}
+\newcommand{\listofgraficosname}{Lista de gráficos}
+\newfloat[chapter]{grafico}{lof}{\graficoname}
+\newlistof{listofgraficos}{lof}{\listfigurename}
+\newlistentry{grafico}{lof}{0}
+\counterwithout{grafico}{chapter}
+\renewcommand{\cftgraficoname}{\graficoname\space} 
+\renewcommand*{\cftgraficoaftersnum}{\hfill--\hfill}
+\setfloatlocations{grafico}{hbtp}
+
+% 3. DIAGRAMA
+\newcommand{\diagramaname}{Diagrama}
+\newcommand{\listofdiagramasname}{Lista de diagramas}
+\newfloat[chapter]{diagrama}{lof}{\diagramaname}
+\newlistof{listofdiagramas}{lof}{\listfigurename}
+\newlistentry{diagrama}{lof}{0}
+\counterwithout{diagrama}{chapter}
+\renewcommand{\cftdiagramaname}{\diagramaname\space} 
+\renewcommand*{\cftdiagramaaftersnum}{\hfill--\hfill}
+\setfloatlocations{diagrama}{hbtp}
+
+\makeatother
+
+\endinput

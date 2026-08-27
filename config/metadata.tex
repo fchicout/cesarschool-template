@@ -1,0 +1,66 @@
+% ==============================================================================
+% CONFIGURAÇÃO DE DADOS DO TRABALHO / WORK METADATA CONFIGURATION
+% ==============================================================================
+% Este arquivo centraliza todas as informações do seu trabalho acadêmico (título,
+% autor, curso, orientador, etc.).
+% 
+% O grau (phd | msc | undergrad) e o idioma (pt-br | en-us) são definidos nas opções
+% da classe em main.tex:
+%   \documentclass[phd, pt-br]{cesarschool-thesis}
+% ==============================================================================
+
+% ------------------------------------------------------------------------------
+% 1. SELEÇÃO DO CURSO / PROGRAM SELECTION
+% ------------------------------------------------------------------------------
+% Descomente APENAS UMA linha abaixo correspondente ao seu curso.
+% Os cursos abaixo são os 6 programas oficiais autorizados pela CESAR School.
+
+% --- Doutorado Profissional (para \documentclass[phd, ...]) ---
+\newcommand{\curso}{Engenharia de Software}
+
+% --- Mestrado Profissional (para \documentclass[msc, ...]) ---
+%\newcommand{\curso}{Engenharia de Software}
+%\newcommand{\curso}{Design}
+
+% --- Graduação / Bacharelado (para \documentclass[undergrad, ...]) ---
+%\newcommand{\curso}{Ciência da Computação}
+%\newcommand{\curso}{Design}
+%\newcommand{\curso}{ADM Tech}
+
+% Aplica as configurações do grau e idioma selecionados
+\aplicardespachogrduidioma
+
+
+% ------------------------------------------------------------------------------
+% 2. DADOS DO TRABALHO E AUTOR / TITLE & AUTHOR DATA
+% ------------------------------------------------------------------------------
+% Título principal do trabalho e subtítulo (se houver)
+\titulo{\placeholdertitulo}
+
+% Nome completo do autor(a)
+\autor{\placeholderautor}
+
+% Cidade/Local da instituição (Regra da Biblioteca: será impresso em MAIÚSCULAS)
+\local{Recife}
+
+% Ano da defesa/entrega
+\data{\Year}
+
+
+% ------------------------------------------------------------------------------
+% 3. ORIENTAÇÃO E CO-ORIENTAÇÃO / ADVISOR & CO-ADVISOR
+% ------------------------------------------------------------------------------
+\orientador{\textbf{\orientadorname} Prof. Dr. Nome do Orientador}
+
+% Caso NÃO possua co-orientador, basta comentar a linha abaixo:
+\coorientador{\textbf{\coorientadorname} Prof. Dr. Nome do Coorientador}
+
+
+% ------------------------------------------------------------------------------
+% 4. DADOS COMPLEMENTARES / PROGRAM DETAILS
+% ------------------------------------------------------------------------------
+\instituicao{\textbf{\instituicaoname}}
+\programa{\programaname}
+\emailprograma{contato@cesar.school}
+\siteprograma{https://cesar.school}
+\tipotrabalho{\trabalhoname}

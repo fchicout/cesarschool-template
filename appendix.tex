@@ -1,31 +1,23 @@
-
-
-% ----------------------
-% força para que não exiba subtítulos em apêndices no sumário
-% adicione/remova \input lines abaixo para seus próprios apêndices
-% -----------------------
-% forces subtitles not to be shown for appendices in the table of contents
-% add/remove \input lines below for your own appendices
-% -----------------------
+% ==============================================================================
+% APÊNDICES / APPENDICES
+% ==============================================================================
+% Apêndices são documentos ou textos elaborados pelo Próprio Autor a fim de
+% complementar sua argumentação, sem prejuízo da unidade temática do trabalho.
+% ==============================================================================
 
 \begin{apendicesenv}
-\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
-\makeatletter
-\addtocontents{toc}{%
-  \begingroup
-  \let\protect\l@chapter\protect\l@section
-  \let\protect\l@section\protect\l@subsection
-}
-\makeatother
+  % Oculta subtítulos dos apêndices no sumário para manter conformidade ABNT
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+  \makeatletter
+  \addtocontents{toc}{%
+    \begingroup
+    \let\protect\l@chapter\protect\l@section
+    \let\protect\l@section\protect\l@subsection
+  }
+  \makeatother
 
-% Imprime uma página indicando o início dos apêndices
-% \partapendices
+  \input{content/\contentlangdir/appendix/apendiceA}
+  \input{content/\contentlangdir/appendix/apendiceB}
 
-\input{content/\contentlangdir/appendix/apendiceA}
-\input{content/\contentlangdir/appendix/apendiceB}
-
-\addtocontents{toc}{\endgroup}
+  \addtocontents{toc}{\endgroup}
 \end{apendicesenv}
-
-
-

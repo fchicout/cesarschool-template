@@ -1,5 +1,6 @@
 # Compiled output
 main.pdf
+*.xdv
 
 # LaTeX build artifacts
 *.aux

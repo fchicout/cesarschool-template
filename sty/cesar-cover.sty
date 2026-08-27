@@ -1,0 +1,125 @@
+% ==============================================================================
+% CESAR School LaTeX Template -- Cover & Title Page Package
+% ==============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sty/cesar-cover}[2026/08/27 CESAR School Cover & Approval Page Governance]
+
+% ------------------------------------------------------------------------------
+% Impressão da Capa (Cover Page)
+% Regra da Biblioteca: Cidade ("RECIFE") DEVE estar em caixa-alta (\MakeTextUppercase)
+% ------------------------------------------------------------------------------
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \includegraphics[width=6cm]{figures/book-cover}\\ \vspace{0.5cm}
+
+    {\ABNTEXchapterfont\fontsize{12}{12}\selectfont \imprimirinstituicao \\}
+    \vspace{2cm}
+    {\ABNTEXchapterfont\fontsize{12}{12}\selectfont \imprimirautor}
+
+    \vfill
+    \begin{center}
+    \ABNTEXchapterfont\fontsize{12}{12}\selectfont \imprimirtitulo
+    \end{center}
+    \vfill
+
+    \vspace{1.4cm}
+    
+    {\ABNTEXchapterfont\fontsize{12}{12}\selectfont \MakeTextUppercase{\imprimirlocal}}
+    \par
+    {\enspace\ABNTEXchapterfont\fontsize{12}{12}\selectfont \imprimirdata}
+    \vspace*{1cm}
+  \end{capa}%
+}
+
+% ------------------------------------------------------------------------------
+% Impressão da Folha de Rosto (Title Page)
+% Regra da Biblioteca: Cidade ("RECIFE") DEVE estar em caixa-alta (\MakeTextUppercase)
+% ------------------------------------------------------------------------------
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+  \begin{center}
+    {\ABNTEXchapterfont\fontsize{12}{12}\selectfont\imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    \begin{center}
+      \ABNTEXchapterfont\fontsize{12}{12}\selectfont\imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+      \hspace{.35\textwidth}
+      \begin{minipage}{.55\textwidth}
+        \SingleSpacing
+        \imprimirpreambulo
+        \abntex@ifnotempty{\imprimirareaconcentracao}{
+          \vspace*{1cm}
+          {\imprimirareaconcentracao\par}
+          \vspace*{1cm}
+        }
+        {\imprimirorientador\par}
+        \abntex@ifnotempty{\imprimircoorientador}{%
+          {\imprimircoorientador}%
+        }%
+      \end{minipage}%
+      \vspace*{\fill}
+    }%
+
+    \vspace*{\fill}
+
+    {\fontsize{12}{12}\selectfont \MakeTextUppercase{\imprimirlocal}}
+    \par
+    {\fontsize{12}{12}\selectfont \imprimirdata}
+    \vspace*{1cm}
+  \end{center}
+}
+
+% ------------------------------------------------------------------------------
+% Folha de Aprovação (Approval Sheet Placeholder)
+% Regra da Biblioteca: Inserir uma página após a ficha catalográfica indicando
+% a futura inclusão da folha de aprovação oficial assinada.
+% ------------------------------------------------------------------------------
+\newcommand{\imprimirfolhadeaprovacaoplaceholder}{%
+  \cleardoublepage
+  \begin{center}
+    {\ABNTEXchapterfont\fontsize{12}{12}\selectfont \imprimirautor}
+
+    \vspace*{\fill}
+    \begin{center}
+      \ABNTEXchapterfont\fontsize{14}{14}\bfseries \imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+      \hspace{.35\textwidth}
+      \begin{minipage}{.55\textwidth}
+        \SingleSpacing
+        \imprimirpreambulo
+      \end{minipage}%
+      \vspace*{\fill}
+    }%
+
+    \begin{center}
+      \vspace*{1cm}
+      \SingleSpacing
+      \fbox{%
+        \begin{minipage}{0.85\textwidth}
+          \centering \vspace{0.8cm}
+          \textbf{FOLHA DE APROVAÇÃO}\\[0.5cm]
+          \textit{A folha de aprovação assinada pela banca examinadora será inserida neste local após a defesa final do trabalho, conforme as normas da CESAR School.}\\[0.8cm]
+        \end{minipage}%
+      }
+    \end{center}
+
+    \vspace*{\fill}
+
+    {\fontsize{12}{12}\selectfont \MakeTextUppercase{\imprimirlocal}}
+    \par
+    {\fontsize{12}{12}\selectfont \imprimirdata}
+    \vspace*{1cm}
+  \end{center}
+  \cleardoublepage
+}
+\makeatother
+
+\endinput
