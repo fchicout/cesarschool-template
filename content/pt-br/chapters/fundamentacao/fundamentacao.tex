@@ -1,26 +1,23 @@
 \chapter{Fundamentação Teórica}
 \label{chap:fundamentacao}
 
-A fundamentação teórica é onde você traz conceitos importantes, que servem como base para o entendimento do seu trabalho. Você traz autores consagrados, gráficos que você achou no Google Scholar às 2h da manhã, sempre citando a fonte \enquote{De acordo com os estudos de \cite{Ding2020AdversarialAttacks}}. 
+A Fundamentação Teórica estabelece a base conceitual e matemática necessária para o pleno entendimento da proposta metodológica e dos resultados do trabalho. Nesta seção, o autor apresenta os princípios, algoritmos, modelos formais e tecnologias sobre os quais a pesquisa é construída.
 
-Assim, vai construindo um texto onde seus parágrafos são retirados diretamente de diversos trabalhos, mostrando que você não tá inventando nada.
+Diferente dos Trabalhos Relacionados, que analisam soluções concorrentes ou correlatas, a Fundamentação Teórica foca nos **conceitos consolidados** da literatura científica, citando autores de referência no domínio \cite{Ding2020AdversarialAttacks}.
 
-O segredo aqui é parecer que você mergulhou fundo na literatura, mesmo que tenha mergulhado mesmo só na aba de recomendados do Google Scholar.
-
-Para isso, é ideal é criar vários subtópicos e seções. Você também pode incluir equações:
+Para manter a legibilidade, o capítulo deve ser dividido em seções temáticas coerentes. Quando o trabalho envolver conceitos matemáticos ou formulações analíticas, deve-se empregar o ambiente formal de equações:
 
 \begin{equation}
     x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
     \label{eq:quadratic}
 \end{equation}
 
-Ou até mesmo código, onde você tem mais liberdade para trazer conhecimento elaborado por si mesmo.
+Toda equação deve ser numerada e explicitamente discutida no texto (ex.: \enquote{conforme a Equação~\ref{eq:quadratic}}). Quando pertinente, a inclusão de trechos de código-fonte ilustrativos pode ser feita utilizando o pacote \texttt{listings}, como demonstrado no Código~\ref{lst:exemplocodigo}.
 
 \lstinputlisting[language=Python,
-caption=Exemplo de código
-,label=lst:exemplocodigo]{content/\contentlangdir/chapters/fundamentacao/example.py}
+caption=Exemplo de listagem de código-fonte estruturado,
+label=lst:exemplocodigo]{content/\contentlangdir/chapters/fundamentacao/example.py}
 \hfill
 \begin{minipage}[t]{.65\textwidth}
 \fonteautor
 \end{minipage}
-%exemplo de inputs, ideal para organização e troca de posicionamento futuro é ter um elemento por arquivo
