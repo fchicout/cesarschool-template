@@ -1,5 +1,7 @@
 # CESAR School LaTeX Thesis / Dissertation Template
 
+[![Open in Overleaf](https://img.shields.io/badge/Overleaf-Create%20New%20Project-47a141?style=for-the-badge&logo=overleaf&logoColor=white)](https://www.overleaf.com/docs?snip_uri=https://github.com/fchicout/cesarschool-template/archive/refs/heads/main.zip&main_document=main.tex)
+
 An [abnTeX2](https://www.abntex.net.br/)-based, highly modular, clean LaTeX template for CESAR School theses (Doutorado), dissertations (Mestrado), and undergraduate capstones (TCC), fully compliant with **ABNT NBR 14724:2011** and official **CESAR School Library Normalization Rules**.
 
 Supports both **pt-BR** and **en-US** output languages natively.
@@ -8,9 +10,19 @@ Supports both **pt-BR** and **en-US** output languages natively.
 
 ## 🚀 Quick Start
 
-1. **Compiler Selection:** Compile using **XeLaTeX** (required for `fontspec` typography).
-   * *Overleaf:* Menu > Settings > Compiler > **XeLaTeX**.
-   * *Local:* Run `latexmk` (pre-configured via `latexmkrc`).
+### Option A: Open directly in Overleaf
+Click the button below to instantiate a new project in Overleaf directly from the latest template release:
+
+👉 **[Create New Project on Overleaf](https://www.overleaf.com/docs?snip_uri=https://github.com/fchicout/cesarschool-template/archive/refs/heads/main.zip&main_document=main.tex)**
+
+> **Important (Overleaf Compiler Setting):** 
+> After creating your project on Overleaf, ensure the compiler is set to **XeLaTeX**:
+> *Go to **Menu** (top left) > **Compiler** > Select **XeLaTeX**.*
+
+---
+
+### Option B: Local Setup & Configuration
+1. **Compiler Selection:** Compile locally using `latexmk` (pre-configured via `latexmkrc`).
 2. **Document Configuration:**
    * Open `main.tex` and select your degree (`phd`, `msc`, or `undergrad`) and language (`pt-br` or `en-us`):
      ```latex
