@@ -15,27 +15,50 @@ Click the button below to instantiate a new project in Overleaf directly from th
 
 👉 **[Create New Project on Overleaf](https://www.overleaf.com/docs?snip_uri=https://github.com/fchicout/cesarschool-template/archive/refs/heads/main.zip&main_document=main.tex)**
 
-> **Important (Overleaf Compiler Setting):** 
-> After creating your project on Overleaf, ensure the compiler is set to **XeLaTeX**:
-> *Go to **Menu** (top left) > **Compiler** > Select **XeLaTeX**.*
+> **Compiler Compatibility:** Compiles out-of-the-box in Overleaf on both **pdfLaTeX** and **XeLaTeX**.
 
 ---
 
 ### Option B: Local Setup & Configuration
 1. **Compiler Selection:** Compile locally using `latexmk` (pre-configured via `latexmkrc`).
 2. **Document Configuration:**
-   * Open `main.tex` and select your degree (`phd`, `msc`, or `undergrad`), program (`mpes`, `mpd`, `cc`, `design`, `admtech`), and language (`pt-br` or `en-us`):
+   * Open `main.tex` and select your degree, program, and language:
      ```latex
      \documentclass[msc, mpes, pt-br]{cesarschool-thesis}     % MPES (Engenharia de Software)
      \documentclass[msc, mpd, pt-br]{cesarschool-thesis}      % MPD (Design)
      \documentclass[undergrad, cc, pt-br]{cesarschool-thesis} % Bacharelado em Ciência da Computação
      \documentclass[undergrad, admtech, pt-br]{cesarschool-thesis}% Bacharelado em ADM Tech
+     \documentclass[phd, pt-br]{cesarschool-thesis}          % DPES (Doutorado)
      ```
-   * Open `config/metadata.tex` to fill in your work's title, author, course, advisor, and co-advisor.
+   * Open `config/metadata.tex` to fill in your work's title, author, advisor, and co-advisor.
 3. **Institutional PDF Drop-in:**
    * Place your official catalog card PDF from the library into `library/ficha.pdf`.
 4. **Writing Your Content:**
    * Write your main text under `content/pt-br/chapters/` (or `content/en-us/chapters/`).
+
+---
+
+## ⚙️ Document Class Parameters (`\documentclass[...]`)
+
+The master class `cesarschool-thesis` accepts modular configuration parameters passed directly to `\documentclass`:
+
+```latex
+\documentclass[<degree>, <program>, <language>]{cesarschool-thesis}
+```
+
+| Parameter Category | Available Option Mnemonics | Description / Resulting Setting |
+| :--- | :--- | :--- |
+| **Degree Level (`<degree>`)** | `phd` or `doutorado` | Doutorado Profissional (Tese de Doutorado) |
+| | `msc` or `mestrado` | Mestrado Profissional (Dissertação de Mestrado) |
+| | `undergrad`, `tcc`, or `graduacao` | Graduação (Trabalho de Conclusão de Curso - TCC) |
+| **Program / Course (`<program>`)** | `mpes`, `dpes`, `software`, `se` | Engenharia de Software (MPES / DPES) |
+| | `mpd` or `design` | Design (MPD / Bacharelado) |
+| | `cc` or `comp` | Ciência da Computação (Bacharelado) |
+| | `admtech` or `adm` | ADM Tech (Bacharelado) |
+| **Output Language (`<language>`)** | `pt-br` or `ptbr` | Português (Brasil) — Default |
+| | `en-us` or `enus` | English (United States) |
+
+> **Smart Defaults:** If `<program>` is omitted, the class defaults to `mpes` for `msc`, `dpes` for `phd`, and `cc` for `undergrad`. You can also override `\curso` manually in `config/metadata.tex`.
 
 ---
 

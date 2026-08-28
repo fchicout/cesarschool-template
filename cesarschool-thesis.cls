@@ -3,10 +3,13 @@
 %% Master Document class for CESAR School theses (PhD), dissertations (MSc), and
 %% undergraduate capstones (TCC), implementing ABNT NBR 14724:2011 standards.
 %%
-%% Usage:
-%   \documentclass[phd, pt-br]{cesarschool-thesis}
-%   \documentclass[msc, en-us]{cesarschool-thesis}
-%   \documentclass[undergrad, pt-br]{cesarschool-thesis}
+%% Usage Examples:
+%   \documentclass[phd, pt-br]{cesarschool-thesis}              % DPES (Doutorado Eng. Software)
+%   \documentclass[msc, mpes, pt-br]{cesarschool-thesis}         % MPES (Mestrado Eng. Software)
+%   \documentclass[msc, mpd, pt-br]{cesarschool-thesis}          % MPD (Mestrado Design)
+%   \documentclass[undergrad, cc, pt-br]{cesarschool-thesis}     % TCC (Ciência da Computação)
+%   \documentclass[undergrad, design, pt-br]{cesarschool-thesis} % TCC (Design)
+%   \documentclass[undergrad, admtech, pt-br]{cesarschool-thesis}% TCC (ADM Tech)
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cesarschool-thesis}[2026/08/27 CESAR School thesis/dissertation master class]
