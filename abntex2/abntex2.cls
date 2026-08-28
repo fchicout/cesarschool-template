@@ -136,7 +136,7 @@
 % ---
 % Hifenizacao e caracteres especiais portugues-brasil por padrao
 % ---
-\RequirePackage[brazil]{babel}
+\RequirePackage[brazilian]{babel}
 %
 % Nomes constantes do abnTeX2 em portugues (definicoes padroes)
 \newcommand{\folhaderostoname}{Folha de rosto}
@@ -158,7 +158,7 @@
 \newcommand{\notaname}{Nota:}
 \newcommand{\areacocentracaoname}{Área de Concentração}
 %
-\addto\captionsbrazil{% portugues-brasil
+\addto\captionsbrazilian{% portugues-brasil
   %% ajusta nomes padroes do babel
   \renewcommand{\bibname}{Refer\^encias}
   \renewcommand{\indexname}{\'Indice}
@@ -497,6 +497,9 @@
 
 \makeatletter
 \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{
+  \begingroup
+  \providecommand{\MarkDeprecated}[2]{}%
+  \let\MarkDeprecated\@gobbletwo
   \settocpreprocessor{chapter}{%
   \let\tempf@rtoc\f@rtoc%
   \def\f@rtoc{%
@@ -512,6 +515,7 @@
   \def\f@rtoc{%
   \texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
   }
+  \endgroup
 }{}
 \makeatother
 %

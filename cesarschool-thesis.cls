@@ -45,7 +45,7 @@
 	french,
 	spanish,
 	english,
-	brazil
+	brazilian
 ]{abntex2/abntex2}
 
 \renewcommand{\baselinestretch}{1.5}
