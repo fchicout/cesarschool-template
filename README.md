@@ -24,9 +24,12 @@ Click the button below to instantiate a new project in Overleaf directly from th
 ### Option B: Local Setup & Configuration
 1. **Compiler Selection:** Compile locally using `latexmk` (pre-configured via `latexmkrc`).
 2. **Document Configuration:**
-   * Open `main.tex` and select your degree (`phd`, `msc`, or `undergrad`) and language (`pt-br` or `en-us`):
+   * Open `main.tex` and select your degree (`phd`, `msc`, or `undergrad`), program (`mpes`, `mpd`, `cc`, `design`, `admtech`), and language (`pt-br` or `en-us`):
      ```latex
-     \documentclass[phd, pt-br]{cesarschool-thesis}
+     \documentclass[msc, mpes, pt-br]{cesarschool-thesis}     % MPES (Engenharia de Software)
+     \documentclass[msc, mpd, pt-br]{cesarschool-thesis}      % MPD (Design)
+     \documentclass[undergrad, cc, pt-br]{cesarschool-thesis} % Bacharelado em Ciência da Computação
+     \documentclass[undergrad, admtech, pt-br]{cesarschool-thesis}% Bacharelado em ADM Tech
      ```
    * Open `config/metadata.tex` to fill in your work's title, author, course, advisor, and co-advisor.
 3. **Institutional PDF Drop-in:**

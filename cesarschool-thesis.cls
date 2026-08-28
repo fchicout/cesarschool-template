@@ -28,6 +28,21 @@
 \DeclareOption{en-us}{\renewcommand{\CSTlang}{en-us}}
 \DeclareOption{enus}{\renewcommand{\CSTlang}{en-us}}
 
+% ------------------------------------------------------------------------------
+% Opções da Classe: Curso / Program (mpes | mpd | cc | admtech | etc.)
+% ------------------------------------------------------------------------------
+\newcommand{\CSTcourse}{auto}
+\DeclareOption{mpes}{\renewcommand{\CSTcourse}{se}}
+\DeclareOption{dpes}{\renewcommand{\CSTcourse}{se}}
+\DeclareOption{software}{\renewcommand{\CSTcourse}{se}}
+\DeclareOption{se}{\renewcommand{\CSTcourse}{se}}
+\DeclareOption{mpd}{\renewcommand{\CSTcourse}{design}}
+\DeclareOption{design}{\renewcommand{\CSTcourse}{design}}
+\DeclareOption{cc}{\renewcommand{\CSTcourse}{cc}}
+\DeclareOption{comp}{\renewcommand{\CSTcourse}{cc}}
+\DeclareOption{admtech}{\renewcommand{\CSTcourse}{admtech}}
+\DeclareOption{adm}{\renewcommand{\CSTcourse}{admtech}}
+
 % Redireciona opções adicionais para a classe abntex2 base
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{abntex2/abntex2}}
 \ProcessOptions\relax
@@ -53,6 +68,7 @@
 % Record resolved values
 \edef\degreetype{\CSTdegree}
 \edef\templatelang{\CSTlang}
+\edef\coursetype{\CSTcourse}
 
 % Automates language activation at document start
 \AtBeginDocument{\aplicaridiomacorpo}

@@ -12,22 +12,18 @@
 % ------------------------------------------------------------------------------
 % 1. SELEÇÃO DO CURSO / PROGRAM SELECTION
 % ------------------------------------------------------------------------------
-% Descomente APENAS UMA linha abaixo correspondente ao seu curso.
-% Os cursos abaixo são os 6 programas oficiais autorizados pela CESAR School.
+% O curso é selecionado automaticamente via opções da classe em main.tex:
+%   \documentclass[msc, mpes, pt-br]{cesarschool-thesis}    % Mestrado em Eng. de Software (MPES)
+%   \documentclass[msc, mpd, pt-br]{cesarschool-thesis}     % Mestrado em Design (MPD)
+%   \documentclass[undergrad, cc, pt-br]{cesarschool-thesis}% Bacharelado em Ciência da Computação
+%   \documentclass[undergrad, design, pt-br]{cesarschool-thesis}% Bacharelado em Design
+%   \documentclass[undergrad, admtech, pt-br]{cesarschool-thesis}% Bacharelado em ADM Tech
+%   \documentclass[phd, pt-br]{cesarschool-thesis}          % Doutorado Profissional em Eng. de Software (DPES)
+%
+% Caso deseje sobrescrever manualmente o nome do curso, descomente a linha abaixo:
+% \renewcommand{\curso}{Nome Customizado do Curso}
 
-% --- Doutorado Profissional (para \documentclass[phd, ...]) ---
-\newcommand{\curso}{Engenharia de Software}
-
-% --- Mestrado Profissional (para \documentclass[msc, ...]) ---
-%\newcommand{\curso}{Engenharia de Software}
-%\newcommand{\curso}{Design}
-
-% --- Graduação / Bacharelado (para \documentclass[undergrad, ...]) ---
-%\newcommand{\curso}{Ciência da Computação}
-%\newcommand{\curso}{Design}
-%\newcommand{\curso}{ADM Tech}
-
-% Aplica as configurações do grau e idioma selecionados
+% Aplica as configurações do grau, curso e idioma selecionados
 \aplicardespachogrduidioma
 
 

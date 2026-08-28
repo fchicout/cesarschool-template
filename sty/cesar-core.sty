@@ -24,6 +24,30 @@
 % ------------------------------------------------------------------------------
 \providecommand{\degreetype}{doutorado}
 \providecommand{\templatelang}{pt-br}
+\providecommand{\coursetype}{auto}
+
+% ------------------------------------------------------------------------------
+% Resolução Automática do Nome do Curso (\curso)
+% ------------------------------------------------------------------------------
+\providecommand{\curso}{%
+  \ifboolexpr{ test {\ifdefstring{\templatelang}{en-us}} or test {\ifdefstring{\templatelang}{enus}} }{%
+    % --- en-US ---
+    \ifdefstring{\coursetype}{design}{Design}{%
+    \ifdefstring{\coursetype}{cc}{Computer Science}{%
+    \ifdefstring{\coursetype}{admtech}{ADM Tech}{%
+      % Fallback por grau:
+      \ifdefstring{\degreetype}{tcc}{Computer Science}{Software Engineering}%
+    }}}%
+  }{%
+    % --- pt-BR ---
+    \ifdefstring{\coursetype}{design}{Design}{%
+    \ifdefstring{\coursetype}{cc}{Ciência da Computação}{%
+    \ifdefstring{\coursetype}{admtech}{ADM Tech}{%
+      % Fallback por grau:
+      \ifdefstring{\degreetype}{tcc}{Ciência da Computação}{Engenharia de Software}%
+    }}}%
+  }%
+}
 
 \newcommand{\programaname}{}
 \newcommand{\trabalhoname}{}
