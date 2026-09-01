@@ -103,10 +103,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{chngcntr}
 \counterwithout{equation}{chapter}
-\RequirePackage{dsfont}
 \RequirePackage{lscape}
-\RequirePackage{rotating}
-\RequirePackage{tikz}
 \RequirePackage{setspace}
 
 % ------------------------------------------------------------------------------
