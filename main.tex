@@ -40,11 +40,13 @@
 % ------------------------------------------------------------------------------
 % 3. GLOSSÁRIOS E ACRÔNIMOS / GLOSSARIES & ACRONYMS
 % ------------------------------------------------------------------------------
+\makeglossaries
 \input{content/\contentlangdir/front-matter/glossaries}
 \input{content/\contentlangdir/front-matter/acronyms}
-\makenoidxglossaries
 
-\makeindex
+% Índice remissivo (opcional, ABNT NBR 14724): descomente \makeindex acima e
+% \printindex abaixo, e use \index{termo} pelo texto, se quiser um.
+%\makeindex
 
 % ==============================================================================
 % INÍCIO DO DOCUMENTO / DOCUMENT BODY
@@ -126,7 +128,7 @@
 % Anexos (documentos de terceiros)
 \input{anexos}
 
-% Índice Remissivo
-\printindex
+% Índice Remissivo (opcional, ver \makeindex acima)
+%\printindex
 
 \end{document}

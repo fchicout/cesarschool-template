@@ -60,9 +60,6 @@
 	a4paper,
 	chapter=TITLE,
 	section=TITLE,
-	french,
-	spanish,
-	english,
 	brazilian
 ]{abntex2/abntex2}
 
@@ -84,7 +81,6 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
-\RequirePackage{lastpage}
 \RequirePackage{indentfirst}
 \RequirePackage{color}
 \RequirePackage{graphicx}
