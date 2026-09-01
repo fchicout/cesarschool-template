@@ -15,12 +15,12 @@ Click the button below to instantiate a new project in Overleaf directly from th
 
 👉 **[Create New Project on Overleaf](https://www.overleaf.com/docs?snip_uri=https://github.com/fchicout/cesarschool-template/archive/refs/heads/main.zip&main_document=main.tex)**
 
-> **Compiler Compatibility:** Compiles out-of-the-box in Overleaf on both **pdfLaTeX** and **XeLaTeX**.
+> **Compiler:** Uses **pdfLaTeX** — the fastest of the LaTeX engines and the one least likely to hit Overleaf's free-tier compile timeout. Just click Recompile; no compiler switch needed.
 
 ---
 
 ### Option B: Local Setup & Configuration
-1. **Compiler Selection:** Compile locally using `latexmk` (pre-configured via `latexmkrc`).
+1. **Compiler Selection:** Compile locally using `latexmk` (pre-configured via `latexmkrc` to run pdfLaTeX).
 2. **Document Configuration:**
    * Open `main.tex` and select your degree, program, and language:
      ```latex
@@ -83,7 +83,7 @@ This template automatically enforces the official CESAR School Library normaliza
 cesarschool-template/
 ├── main.tex                    # Clean declarative driver file (~40 lines)
 ├── cesarschool-thesis.cls      # Master LaTeX class
-├── latexmkrc                   # Build automation configuration for XeLaTeX
+├── latexmkrc                   # Build automation configuration for pdfLaTeX
 ├── config/
 │   ├── metadata.tex            # User work metadata (title, author, course, advisor)
 │   └── user-packages.tex       # Custom user packages and commands

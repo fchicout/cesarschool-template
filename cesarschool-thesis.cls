@@ -80,16 +80,10 @@
 % Pacotes Gerais Obrigatórios
 % ------------------------------------------------------------------------------
 \RequirePackage{pdfpages}
-\RequirePackage{iftex}
-\ifPDFTeX
-  \RequirePackage[utf8]{inputenc}
-  \RequirePackage[T1]{fontenc}
-  \RequirePackage{helvet}
-  \renewcommand{\familydefault}{\sfdefault}
-\else
-  \RequirePackage{fontspec}
-  \setmainfont{Liberation Sans}
-\fi
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
 \RequirePackage{lastpage}
 \RequirePackage{indentfirst}
 \RequirePackage{color}
