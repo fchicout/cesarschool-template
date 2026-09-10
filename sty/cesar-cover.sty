@@ -51,15 +51,16 @@
       \hspace{.35\textwidth}
       \begin{minipage}{.55\textwidth}
         \SingleSpacing
-        \imprimirpreambulo
-        \abntex@ifnotempty{\imprimirareaconcentracao}{
+        \imprimirpreambulo\par
+        \abntex@ifnotempty{\imprimirareaconcentracao}{%
           \vspace*{1cm}
-          {\imprimirareaconcentracao\par}
-          \vspace*{1cm}
-        }
-        {\imprimirorientador\par}
+          \imprimirareaconcentracao\par
+        }%
+        \vspace*{1cm}
+        \imprimirorientador\par
         \abntex@ifnotempty{\imprimircoorientador}{%
-          {\imprimircoorientador}%
+          \vspace*{0.5cm}
+          \imprimircoorientador\par
         }%
       \end{minipage}%
       \vspace*{\fill}
