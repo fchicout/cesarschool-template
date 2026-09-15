@@ -3,10 +3,12 @@
 % CESAR School Academic Thesis / Dissertation / Undergraduate Capstone Template
 % ==============================================================================
 % Este é o arquivo principal (driver) que organiza a estrutura do seu trabalho.
+% Em conformidade com as normas ABNT NBR 14724:2011 e diretrizes da Biblioteca
+% da CESAR School.
 %
 % COMO USAR ESTE TEMPLATE:
 %   1. Configuração de Grau e Idioma:
-%      Escolha abaixo seu grau (phd, msc ou undergrad) e idioma (ptbr ou enus).
+%      Escolha abaixo seu grau (phd, msc ou undergrad) e idioma (pt-br ou en-us).
 %   2. Dados do Trabalho:
 %      Abra o arquivo 'config/metadata.tex' e preencha título, autor, curso, orientador.
 %   3. Pacotes do Usuário (Opcional):
@@ -38,14 +40,22 @@
 \input{config/user-packages}
 
 % ------------------------------------------------------------------------------
-% 3. GLOSSÁRIOS E ACRÔNIMOS / GLOSSARIES & ACRONYMS
+% 3. GLOSSÁRIOS, ACRÔNIMOS E ÍNDICE REMISSIVO (CONFIGURAÇÕES PRELIMINARES)
 % ------------------------------------------------------------------------------
+% Habilita a compilação de glossários e siglas (pacote glossaries).
+% - Termos do Glossário: defina em 'content/\contentlangdir/front-matter/glossaries.tex'
+%   usando \newglossaryentry{label}{name={Termo}, description={Definição}}
+%   No texto: use \gls{label}, \glspl{label}, \Gls{label}, etc.
+% - Siglas/Acrônimos: defina em 'content/\contentlangdir/front-matter/acronyms.tex'
+%   usando \newacronym{SIGLA}{SIGLA}{Significado por Extenso}
+%   No texto: use \gls{SIGLA} (a primeira ocorrência expande; as seguintes usam a sigla).
 \makeglossaries
 \input{content/\contentlangdir/front-matter/glossaries}
 \input{content/\contentlangdir/front-matter/acronyms}
 
-% Índice remissivo (opcional, ABNT NBR 14724): descomente \makeindex acima e
-% \printindex abaixo, e use \index{termo} pelo texto, se quiser um.
+% Índice Remissivo (Elemento pós-textual opcional, ABNT NBR 14724:2011 4.3.5 / NBR 6034):
+% Para usar: descomente \makeindex aqui e \printindex na seção pós-textual.
+% No corpo do texto: marque as entradas desejadas com \index{Palavra-chave}.
 %\makeindex
 
 % ==============================================================================
@@ -56,58 +66,77 @@
 \frenchspacing % Retira espaço extra obsoleto entre frases.
 
 % ------------------------------------------------------------------------------
-% ELEMENTOS PRÉ-TEXTUAIS / PRE-TEXTUAL ELEMENTS
+% ELEMENTOS PRÉ-TEXTUAIS / PRE-TEXTUAL ELEMENTS (ABNT NBR 14724:2011, item 4.2)
 % Nota da Biblioteca: As páginas pré-textuais são contadas mas NÃO exibem número.
 % ------------------------------------------------------------------------------
 \pagestyle{empty}
 
-% Capa e Folha de Rosto (Regra da Biblioteca: Recife em MAIÚSCULAS, CESAR School)
+% Capa (Obrigatório, ABNT NBR 14724 4.2.1.1)
+% Regra da Biblioteca: Recife em MAIÚSCULAS, CESAR School
 \imprimircapa
+
+% Folha de Rosto (Obrigatório, ABNT NBR 14724 4.2.1.3)
 \imprimirfolhaderosto*
 
-% Ficha Catalográfica (fornecida pela biblioteca no formato PDF)
+% Errata (Opcional, ABNT NBR 14724 4.2.1.4)
+% Inserida logo após a folha de rosto caso o trabalho já impresso precise de correções.
+% Exemplo de uso:
+%\begin{errata}
+%  \lipsum[1] % Substitua pelo texto explicativo e tabela de correções da errata.
+%\end{errata}
+
+% Ficha Catalográfica (Obrigatório na versão final, ABNT NBR 14724 / Regra da Biblioteca)
+% Fornecida pela biblioteca no formato PDF e incluída em content/\contentlangdir/front-matter/ficha.tex
 \input{content/\contentlangdir/front-matter/ficha}
 
-% Folha de Aprovação Placeholder (Regra da Biblioteca: Inserida por padrão após a Ficha)
-% Substitua por sua folha de aprovação assinada se já a possuir.
+% Folha de Aprovação (Obrigatório, ABNT NBR 14724 4.2.1.5)
+% Regra da Biblioteca: Inserida por padrão após a Ficha Catalográfica.
+% Substitua por sua folha de aprovação assinada pela banca se já a possuir.
 \imprimirfolhadeaprovacaoplaceholder
 
-% Elementos Opcionais (Agradecimentos, Dedicatória, Epígrafe)
-\input{content/\contentlangdir/front-matter/agradecimentos}
+% Dedicatória (Opcional, ABNT NBR 14724 4.2.1.6)
 %\input{content/\contentlangdir/front-matter/dedicatoria}
+
+% Agradecimentos (Opcional, ABNT NBR 14724 4.2.1.7)
+\input{content/\contentlangdir/front-matter/agradecimentos}
+
+% Epígrafe (Opcional, ABNT NBR 14724 4.2.1.8)
 %\input{content/\contentlangdir/front-matter/epigrafe}
 
-% Resumo e Abstract (ABNT NBR 14724 exige o resumo)
+% Resumo na Língua Vernácula e Resumo em Língua Estrangeira / Abstract
+% (Ambos obrigatórios, ABNT NBR 14724 4.2.2.1 e 4.2.2.2)
 \input{content/\contentlangdir/front-matter/resumo}
 
-% Listas de Ilustrações, Tabelas, Códigos e Símbolos
+% Lista de Ilustrações / Figuras (Opcional, ABNT NBR 14724 4.2.3.1)
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
 
+% Lista de Tabelas (Opcional, ABNT NBR 14724 4.2.3.2)
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
 
-% Lista de Códigos-Fonte (se houver)
+% Lista de Códigos-Fonte / Quadros / Outras Ilustrações (Opcional, ABNT NBR 14724 4.2.3.3)
 \imprimirlistadecodigos
 
-% Lista de Siglas e Glossário (se houver)
+% Lista de Abreviaturas e Siglas (Opcional, ABNT NBR 14724 4.2.3.4)
+% Imprime a lista de siglas cadastradas em 'content/\contentlangdir/front-matter/acronyms.tex'
+% que foram citadas no texto através de \gls{...}.
 \setglossarystyle{super}
 \printglossary[style=super, type=\acronymtype]
 \cleardoublepage
 
-
-% Lista de Símbolos
+% Lista de Símbolos (Opcional, ABNT NBR 14724 4.2.3.5)
 \input{content/\contentlangdir/front-matter/list_simbol}
 
-% Sumário / Table of Contents
+% Sumário (Obrigatório, ABNT NBR 14724 4.2.4)
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \cleardoublepage
 
 % ------------------------------------------------------------------------------
-% ELEMENTOS TEXTUAIS / MAIN TEXTUAL CONTENT
+% ELEMENTOS TEXTUAIS / MAIN TEXTUAL CONTENT (ABNT NBR 14724:2011, item 4.1)
 % Inicia a numeração visível das páginas a partir do Capítulo 1
 % ------------------------------------------------------------------------------
 \textual
@@ -115,21 +144,48 @@
 \input{body}
 
 % ------------------------------------------------------------------------------
-% ELEMENTOS PÓS-TEXTUAIS / POST-TEXTUAL ELEMENTS
+% ELEMENTOS PÓS-TEXTUAIS / POST-TEXTUAL ELEMENTS (ABNT NBR 14724:2011, item 4.3)
 % ------------------------------------------------------------------------------
 \postextual
 
-% Referências Bibliográficas (Regra ABNT)
+% Referências Bibliográficas (Obrigatório, ABNT NBR 14724 4.3.1 / ABNT NBR 6023)
 \bibliographystyle{bib/abntex2-alf}
 \bibliography{bib/references}
 
-% Apêndices (produzidos pelo próprio autor)
+% Glossário (Opcional, ABNT NBR 14724 4.3.2)
+% O Glossário é um elemento pós-textual opcional que lista em ordem alfabética
+% termos técnicos, jargões, expressões regionais ou em língua estrangeira,
+% acompanhados de suas respectivas definições.
+%
+% COMO USAR O GLOSSÁRIO:
+%   1. Cadastre os termos em 'content/\contentlangdir/front-matter/glossaries.tex'
+%      Exemplo:
+%        \newglossaryentry{deep-learning}{
+%          name={Deep Learning},
+%          description={Subcampo do aprendizado de máquina baseado em redes neurais profundas.},
+%          plural={Deep Learning}
+%        }
+%   2. No corpo do texto (capítulos), cite o termo usando:
+%        \gls{deep-learning}   % Primeira letra minúscula no singular
+%        \Gls{deep-learning}   % Primeira letra maiúscula no singular
+%        \glspl{deep-learning} % Forma plural
+%      (Nota: Para exibir todos os termos cadastrados mesmo os não citados, adicione \glsaddall).
+%   3. Descomente as linhas abaixo para gerar e imprimir a página do Glossário:
+%\cleardoublepage
+%\setglossarystyle{super} % Estilos disponíveis: super, modsuper, list, etc.
+%\printglossary[type=main]
+
+% Apêndices (Opcional, ABNT NBR 14724 4.3.3)
+% Textos ou documentos elaborados pelo PRÓPRIO AUTOR a fim de complementar sua argumentação.
 \input{appendix}
 
-% Anexos (documentos de terceiros)
+% Anexos (Opcional, ABNT NBR 14724 4.3.4)
+% Textos ou documentos NÃO ELABORADOS PELO AUTOR, que servem de fundamentação ou comprovação.
 \input{anexos}
 
-% Índice Remissivo (opcional, ver \makeindex acima)
+% Índice Remissivo (Opcional, ABNT NBR 14724 4.3.5 / ABNT NBR 6034)
+% Lista detalhada de termos em ordem alfabética indicando as páginas de ocorrência.
+% Para habilitar: descomente \makeindex na seção 3 do preâmbulo e \printindex abaixo.
 %\printindex
 
 \end{document}
