@@ -154,42 +154,32 @@
 \renewcommand{\ABNTEXchapterfont}{\sffamily}
 \renewcommand{\ABNTEXchapterfontsize}{\bfseries\normalsize}
 \renewcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont}
-\renewcommand{\ABNTEXsectionfontsize}{\normalsize\selectfont}
+\renewcommand{\ABNTEXsectionfontsize}{\bfseries\normalsize\selectfont}
 \renewcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont}
-\renewcommand{\ABNTEXsubsectionfontsize}{\bfseries\normalsize\selectfont}
-\renewcommand{\ABNTEXsubsubsectionfont}{\itshape\ABNTEXsubsectionfont}
+\renewcommand{\ABNTEXsubsectionfontsize}{\itshape\normalsize\selectfont}
+\renewcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont}
 \renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
-\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\itshape\bfseries\normalsize}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
 
 % Ajuste de espaçamento do sumário
 \setlength{\cftbeforechapterskip}{0em}
 \renewcommand{\cftchapterfont}{\bfseries\normalsize}
 \renewcommand{\cftchapterpagefont}{\cftchapterfont}
-\renewcommand{\cftsectionfont}{\normalsize}
+\renewcommand{\cftsectionfont}{\bfseries\normalsize}
 \renewcommand{\cftsectionpagefont}{\cftsectionfont}
-\renewcommand{\cftsubsectionfont}{\bfseries\normalsize}
+\renewcommand{\cftsubsectionfont}{\itshape\normalsize}
 \renewcommand{\cftsubsectionpagefont}{\cftsubsectionfont}
-\renewcommand{\cftsubsubsectionfont}{\itshape\normalsize}
-\renewcommand{\cftsubsubsectionpagefont}{\itshape\cftsubsubsectionfont}
-\renewcommand{\cftparagraphfont}{\itshape\bfseries}
-\renewcommand{\cftparagraphpagefont}{\bfseries\cftparagraphfont}
+\renewcommand{\cftsubsubsectionfont}{\normalsize}
+\renewcommand{\cftsubsubsectionpagefont}{\cftsubsubsectionfont}
+\renewcommand{\cftparagraphfont}{\normalsize}
+\renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
 
-% Converte títulos de seções no sumário para maiúsculas
-\makeatletter
-\let\oldcontentsline\contentsline
-\def\contentsline#1#2{%
-	\expandafter\ifx\csname l@#1\endcsname\l@section
-	\expandafter\@firstoftwo
-	\else
-	\expandafter\@secondoftwo
-	\fi
-	{%
-		\oldcontentsline{#1}{\MakeTextUppercase{#2}}%
-	}{%
-		\oldcontentsline{#1}{#2}%
-	}%
-}
-\makeatother
+% Cancela o hook vendored de abnTeX2 (abntex2.cls:499-521) que força
+% caixa alta nas entradas de "section" no sumário, sem editar o arquivo
+% vendored (ver NOTICE.md). \settocpreprocessor é apenas um \@namedef
+% (memoir.cls); chamá-lo de novo com corpo vazio sobrescreve o hook
+% anterior de forma limpa.
+\settocpreprocessor{section}{}
 
 % Espaçamentos nativos do memoir
 \setlength{\afterchapskip}{0.85cm}

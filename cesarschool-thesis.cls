@@ -59,7 +59,6 @@
 	oneside,
 	a4paper,
 	chapter=TITLE,
-	section=TITLE,
 	brazilian
 ]{abntex2/abntex2}
 
