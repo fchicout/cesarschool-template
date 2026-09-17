@@ -174,12 +174,14 @@
 \renewcommand{\cftparagraphfont}{\normalsize}
 \renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
 
-% Cancela o hook vendored de abnTeX2 (abntex2.cls:499-521) que força
-% caixa alta nas entradas de "section" no sumário, sem editar o arquivo
-% vendored (ver NOTICE.md). \settocpreprocessor é apenas um \@namedef
-% (memoir.cls); chamá-lo de novo com corpo vazio sobrescreve o hook
-% anterior de forma limpa.
-\settocpreprocessor{section}{}
+% Nota: abntex2.cls (vendored) registra um \settocpreprocessor{section}{...}
+% para forçar caixa alta nas entradas de "section" no sumário, mas o memoir
+% atual só consulta esse hook para book/part/chapter (nunca para section) --
+% o registro para "section" já é inerte por si só. Por isso nenhuma
+% cancelação é necessária aqui; a caixa alta de "section" no sumário vinha,
+% na verdade, do \contentsline override que existia neste arquivo e que foi
+% removido (ver histórico do commit "bring heading typography into ABNT
+% NBR 14724/6024 compliance").
 
 % Espaçamentos nativos do memoir
 \setlength{\afterchapskip}{0.85cm}
